@@ -1,189 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Sample Page</title>
-<style>
-    body {
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sample Page</title>
+    <style>
+      body {
         margin: 0;
         font-family: sans-serif;
         display: flex;
         flex-direction: column;
         min-height: 100vh;
-    }
+      }
 
-    nav {
+      nav {
         background-color: #f8f9fa;
         padding: 1rem;
-    }
+      }
 
-    .nav-links {
+      .nav-links {
         display: flex;
         justify-content: center;
         list-style: none;
         gap: 2rem;
         margin: 0;
         padding: 0;
-    }
+      }
 
-    .nav-links a {
+      .nav-links a {
         text-decoration: none;
         color: #333;
         font-size: 1rem;
         font-weight: 500;
-    }
+      }
 
-    .nav-links a:hover {
+      .nav-links a:hover {
         color: #555;
-    }
+      }
 
-    main {
+      main {
         flex: 1;
-    }
+      }
 
-    footer {
+      footer {
         background-color: #4f4f4f;
         color: #fff;
         padding: 2rem 0 0 0;
         display: flex;
         flex-direction: column;
-        align-items: center; /* Center all items horizontally */
-        text-align: center; /* Ensure text aligns centrally */
-    }
+        align-items: center;
+        /* Center all items horizontally */
+        text-align: center;
+        /* Ensure text aligns centrally */
+      }
 
-    .footer-top {
+      .footer-top {
         display: flex;
         flex-wrap: wrap;
         gap: 2rem;
-        justify-content: center; /* Center content horizontally */
+        justify-content: center;
+        /* Center content horizontally */
         align-items: center;
         margin-bottom: 1.5rem;
         width: 90%;
-    }
+      }
 
-    .footer-top > div {
+      .footer-top > div {
         flex: 1 1 200px;
         min-width: 200px;
-    }
+      }
 
-    .footer-top h3 {
+      .footer-top h3 {
         font-size: 1.25rem;
         font-weight: bold;
         margin-bottom: 1rem;
-    }
+      }
 
-    .footer-top p {
+      .footer-top p {
         font-size: 0.9rem;
         line-height: 1.5;
         margin: 0;
-    }
+      }
 
-    .contact-info {
+      .contact-info {
         font-size: 0.9rem;
         line-height: 1.5;
         margin: 0;
-    }
+      }
 
-    .contact-info div {
+      .contact-info div {
         margin-bottom: 0.5rem;
-    }
+      }
 
-    .social-links a {
+      .social-links a {
         display: block;
         text-decoration: none;
         color: #fff;
         font-size: 0.9rem;
         margin-bottom: 0.5rem;
-    }
+      }
 
-    .social-links a:hover {
+      .social-links a:hover {
         text-decoration: underline;
-    }
+      }
 
-    .footer-divider {
+      .footer-divider {
         border: none;
         border-bottom: 1px solid #ccc;
         width: 90%;
         margin: 1.5rem 0;
-    }
+      }
 
-    .footer-bottom {
+      .footer-bottom {
         font-size: 0.9rem;
         margin-bottom: 1.5rem;
         text-transform: uppercase;
         letter-spacing: 0.05em;
-    }
+      }
 
-    .footer-logo img {
+      .footer-logo img {
         display: block;
         margin: 0 auto;
-        max-width: 500px; /* Adjust image size */
+        max-width: 500px;
+        /* Adjust image size */
         height: auto;
-    }
+      }
 
-    @media (max-width: 600px) {
+      @media (max-width: 600px) {
         .footer-top {
-            flex-direction: column;
-            gap: 1.5rem;
+          flex-direction: column;
+          gap: 1.5rem;
         }
 
         .footer-divider {
-            width: 100%;
+          width: 100%;
         }
 
         .footer-logo img {
-            max-width: 250px; /* Reduce size for smaller screens */
+          max-width: 250px;
+          /* Reduce size for smaller screens */
         }
-    }
-</style>
-</head>
-<body>
+      }
+    </style>
+  </head>
 
-<nav>
-    <ul class="nav-links">
+  <body>
+    <nav>
+      <ul class="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#about-us">About Us</a></li>
         <li><a href="#contact-us">Contact Us</a></li>
-    </ul>
-</nav>
+      </ul>
+    </nav>
 
-<main>
-</main>
+    <main></main>
 
-<footer>
-    <div class="footer-top">
+    <footer>
+      <div class="footer-top">
         <div class="about-us-section">
-            <h3>About Us</h3>
-            <p>Job search experience should be simple, seamless, and empowering.
-               Our mission is to connect talented professionals with opportunities
-               that align with their skills, passions, and goals.</p>
+          <h3>About Us</h3>
+          <p>
+            Job search experience should be simple, seamless, and empowering.
+            Our mission is to connect talented professionals with opportunities
+            that align with their skills, passions, and goals.
+          </p>
         </div>
         <div class="contact-section">
-            <h3>CONTACT</h3>
-            <div class="contact-info">
-                <div><strong>Toll Free:</strong> 05526-2329</div>
-                <div><strong>Phone:</strong> +60 016-988 3904</div>
-                <div><strong>Email:</strong> contactus@jobify.com</div>
-            </div>
+          <h3>CONTACT</h3>
+          <div class="contact-info">
+            <div><strong>Toll Free:</strong> 05526-2329</div>
+            <div><strong>Phone:</strong> +60 016-988 3904</div>
+            <div><strong>Email:</strong> contactus@jobify.com</div>
+          </div>
         </div>
         <div class="social-section">
-            <h3>Social</h3>
-            <div class="social-links">
-                <a href="#instagram">Instagram</a>
-                <a href="#twitter-x">Twitter/X</a>
-                <a href="#linkedin">LinkedIn</a>
-            </div>
+          <h3>Social</h3>
+          <div class="social-links">
+            <a href="#instagram">Instagram</a>
+            <a href="#twitter-x">Twitter/X</a>
+            <a href="#linkedin">LinkedIn</a>
+          </div>
         </div>
-    </div>
-    <hr class="footer-divider" />
-    <div class="footer-bottom">
-        © 2024 All Rights Reserved by Jobyfin
-    </div>
-    <div class="footer-logo">
-        <img src="./assets/Logo/Jobyfin.png" alt="Jobyfin Logo">
-    </div>
-</footer>
-
-</body>
+      </div>
+      <hr class="footer-divider" />
+      <div class="footer-bottom">© 2024 All Rights Reserved by Jobyfin</div>
+      <div class="footer-logo">
+        <img src="./assets/Logo/Jobyfin.png" alt="Jobyfin Logo" />
+      </div>
+    </footer>
+  </body>
 </html>

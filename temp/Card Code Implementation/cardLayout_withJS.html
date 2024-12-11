@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toggle Flex Direction</title>
+    <style>
+        .parent {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-evenly;
+            flex-grow: 4;
+            height: 90vh;
+
+            overflow-y: auto;
+            overflow-x: hidden;
+            flex-wrap: wrap;
+        }
+
+        .container1 {
+            display: flex;
+            justify-content: space-evenly;
+            width: 20vw;
+            padding: 20px;
+
+            visibility: hidden;
+            position: absolute;
+        }
+
+        .item {
+            color: #e7e7e7;
+            background-color: #222222;
+            margin: 20px;
+            width: 200px;
+            height: 200px;
+            transition: scale 0.3s;
+        }
+
+        .emptySpace {
+            overflow: scroll;
+            overflow-x: hidden;
+
+            color: #e7e7e7;
+            font-size: 32pt;
+            height: 800px;
+            width: 50vw;
+            background-color: #222222;
+        }
+
+        .emptySpace::-webkit-scrollbar,
+        .container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .item:hover {
+            scale: 1.1;
+        }
+
+        #content {
+            visibility: hidden;
+            position: absolute;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        .title {
+            text-align: center;
+        }
+
+        table * {
+            text-align: left;
+            height: 30px;
+        }
+
+        tr>th,
+        tr:first-of-type,
+        tr:nth-child(2),
+        tr:nth-child(6)>td,
+        tr:nth-child(8),
+        tr:nth-last-child(5)>td,
+        tr:nth-last-child(1) {
+            border-bottom: 1px solid #e7e7e7;
+        }
+
+        .rowspan {
+            vertical-align: text-top;
+            padding-top: 10px;
+        }
+
+        tr:nth-last-child(4)>td:last-child {
+            text-align: center;
+        }
+
+        .child1 {
+            background-color: #e84d51;
+        }
+
+        .child2 {
+            background-color: #7ed636;
+        }
+
+        .child3 {
+            background-color: #2f97ff;
+        }
+
+        /* Card Layout */
+        .card {
+            display: flex;
+            padding: 10px;
+            flex-direction: column;
+            width: 375px;
+            margin: 10px;
+
+            border: 1px solid #222222;
+            transition: scale 0.3s ease-out;
+        }
+
+        .card:hover {
+            scale: 1.05;
+        }
+
+        .card>div>div {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .card>* {
+            padding: 20px;
+        }
+
+        .card__mainDetails {
+            background-color: rgb(204, 204, 204);
+            margin-bottom: 10px;
+        }
+
+        .card__mainDetails__header {
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .card__mainDetails__header>* {
+            margin: 0px;
+        }
+
+        .card__mainDetails__header>p:first-child {
+            padding: 8px 15px 8px 15px;
+            background-color: gray;
+        }
+
+        .card__mainDetails__company>div>*,
+        .card__mainDetails__company>div {
+            margin: 10px 10px 15px 0px;
+        }
+
+        .card__mainDetails__company>div>h3 {
+            font-weight: 400;
+            margin-bottom: 0px;
+        }
+
+        .card__mainDetails__company>div>h1 {
+            margin-top: 3px;
+        }
+
+        .card__mainDetails__jobCondition {
+            flex-wrap: wrap;
+        }
+
+        .card__mainDetails__jobCondition>p {
+            padding: 10px;
+            border: 1px solid #222222;
+            border-radius: 10px;
+            margin: 0px 8px 10px 0px;
+            font-size: 0.8rem;
+        }
+
+        .companyLogo {
+            align-self: center;
+        }
+
+        .card__moreDetails {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .card__moreDetails>div:first-child {
+            flex-direction: column;
+        }
+
+        .card__moreDetails>div:first-child>* {
+            margin: 0px;
+        }
+
+        .card__moreDetails>button {
+            padding: 10px 20px 10px 20px;
+            height: 50px;
+            align-self: center;
+            border: none;
+            background-color: #222222;
+            color: white;
+            cursor: pointer;
+        }
+
+        .card,
+        .card__mainDetails,
+        .card__mainDetails__header>p:first-child,
+        .card__moreDetails>button {
+            border-radius: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <div class="data1" id="content">
+            <table>
+                <tr>
+                    <td class="title" colspan="4">Menu</td>
+                </tr>
+                <tr>
+                    <td width="80px">Category</td>
+                    <td width="100px">Type</td>
+                    <td width="90px" colspan="2">Price (RM)</td>
+                </tr>
+                <tr>
+                    <th colspan="2">Food</th>
+                    <th>Small</th>
+                    <th>Big</th>
+                </tr>
+                <tr>
+                    <td class="rowspan" rowspan="3">Noodles</td>
+                    <td>Curry</td>
+                    <td>3.00</td>
+                    <td>4.00</td>
+                </tr>
+                <tr>
+                    <td>Laksa</td>
+                    <td>3.50</td>
+                    <td>4.50</td>
+                </tr>
+                <tr>
+                    <td>Clear Soup</td>
+                    <td>2.50</td>
+                    <td>3.50</td>
+                </tr>
+                <tr>
+                    <td class="rowspan" rowspan="2">Rice</td>
+                    <td>Chicken</td>
+                    <td>5.50</td>
+                    <td>6.50</td>
+                </tr>
+                <tr>
+                    <td>Fried</td>
+                    <td>5.00</td>
+                    <td>6.00</td>
+                </tr>
+
+                <tr>
+                    <th colspan="2">Drinks</th>
+                    <th>Hot</th>
+                    <th>Cold</th>
+                </tr>
+                <tr>
+                    <td class="rowspan" rowspan="3">Coffee</td>
+                    <td>Latte</td>
+                    <td>8.00</td>
+                    <td>9.00</td>
+                </tr>
+                <tr>
+                    <td>Cappucino</td>
+                    <td>8.00</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Americano</td>
+                    <td>7.00</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="rowspan" rowspan="4">Tea</td>
+                    <td>English</td>
+                    <td rowspan="4" colspan="2">5.00</td>
+                </tr>
+                <tr>
+                    <td>Earl grey</td>
+                </tr>
+                <tr>
+                    <td>Jasmine</td>
+                </tr>
+                <tr>
+                    <td>Rooibos</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+        <div class="data2" id="content">
+            Lorem ipsum odor amet, consectetuer adipiscing elit. Sociosqu mi sem
+            ullamcorper porttitor class. Ridiculus volutpat imperdiet per
+            scelerisque massa risus pellentesque. Aenean parturient rutrum vitae
+            odio odio porta morbi tincidunt. Inceptos vivamus mus potenti diam
+            libero risus imperdiet. Duis scelerisque magna pharetra accumsan at
+            porta fusce. Diam magna consequat sodales dictum mollis, dui per
+            penatibus. Neque lectus a eu orci praesent natoque elementum ante.
+            Auctor felis amet erat amet dictum lectus lectus felis erat. Montes
+            fermentum aliquet nulla leo tincidunt; ex taciti nisl. Volutpat
+            hendrerit venenatis litora class felis commodo pharetra. Ante luctus
+            platea justo auctor class. Cubilia sit ligula erat porttitor etiam
+            aliquet nulla platea efficitur. Consequat eleifend proin cubilia
+            consectetur convallis fermentum penatibus. Mollis viverra duis vulputate
+            habitant pharetra ac. Scelerisque duis nisi blandit volutpat lacinia
+            pharetra. Ante aliquet quis aenean posuere lobortis integer egestas
+            aliquet. Curae risus faucibus consectetur luctus eu. Massa parturient
+            neque pulvinar torquent elementum habitant nec sed? Dis fringilla
+            aliquam euismod placerat velit vehicula. Inceptos quis sed; consectetur
+            venenatis vestibulum nisi. Nibh tellus purus ullamcorper praesent rutrum
+            magnis. Sociosqu felis laoreet et at nisi fringilla sem. Cras eros
+            tellus arcu egestas duis. Sed quis facilisis imperdiet est adipiscing
+            ornare vulputate. Curae pellentesque nisi congue magnis convallis per
+            non elementum. Commodo cras himenaeos pellentesque fermentum, magnis
+            eleifend auctor aptent. Cras aptent ante enim nunc rutrum. Eros
+            ullamcorper duis elementum lobortis ultricies sapien penatibus.
+            Parturient commodo platea nisi eget nostra tempus quam quis. Habitant
+            parturient leo dis faucibus ipsum, quam lacinia. Morbi vestibulum
+            parturient tempor at eros turpis natoque metus. Ac sollicitudin
+            vestibulum placerat nostra sollicitudin sollicitudin consectetur nunc.
+            Vehicula taciti turpis ullamcorper tellus pulvinar arcu. Luctus curae
+            vestibulum ullamcorper, donec duis tempus cursus rhoncus lacinia. Dui
+            consectetur suscipit suspendisse aptent magnis fames. Hac convallis
+            tristique suspendisse sollicitudin ad rhoncus commodo vestibulum
+            sodales. Conubia natoque venenatis lacus hac a maecenas dis malesuada.
+            Erat aliquet tincidunt lorem faucibus per ipsum volutpat arcu. Torquent
+            urna felis suspendisse enim varius viverra. Vestibulum imperdiet lorem
+            metus mollis netus duis efficitur mattis. Suscipit lacinia metus
+            volutpat vestibulum litora. Aliquet tellus mauris tristique purus
+            conubia natoque ultrices magna. Rutrum nulla molestie ultricies
+            phasellus erat praesent. Adipiscing justo vel condimentum dis commodo
+            consectetur posuere natoque. Morbi ullamcorper proin eget hac morbi
+            etiam vehicula vivamus sed. Phasellus placerat tellus quam vestibulum
+            vestibulum. Sagittis facilisis aenean dapibus blandit vel vel sagittis
+            felis. Metus interdum donec fusce volutpat, vestibulum suspendisse.
+            Rutrum justo dignissim eu ex est finibus suspendisse natoque amet.
+            Molestie quis conubia penatibus bibendum nam gravida ante? Enim et sit
+            amet tempus elit mattis nunc. Malesuada fusce conubia rhoncus ornare
+            elit penatibus. Mollis habitasse commodo penatibus rhoncus aliquet.
+            Nascetur vestibulum aenean erat suscipit himenaeos. Nisi curae litora
+            suscipit taciti blandit per. Proin vitae nullam dapibus laoreet curae
+            maximus amet. Conubia placerat consectetur quisque habitasse tortor nec
+            maecenas nec nostra. Ipsum justo arcu integer maecenas fringilla
+            bibendum orci volutpat. Senectus lectus malesuada nisi dolor nisi
+            penatibus lobortis velit purus. Condimentum ultricies phasellus nullam;
+            varius posuere nullam. Torquent imperdiet potenti est taciti porta
+            velit. Feugiat cursus mi sagittis ornare ac. Dis libero porta tempus
+            mollis eros; a dapibus sodales molestie? Tempor diam imperdiet natoque
+            suscipit sodales tempor. Per blandit ultrices torquent maximus gravida
+            etiam phasellus taciti vel. Laoreet ut dignissim ac curae neque sed
+            eleifend laoreet sollicitudin. Odio ullamcorper blandit interdum
+            sagittis mauris magnis. Elit risus suspendisse justo class sociosqu at.
+            Fringilla magna conubia lacinia cras morbi mollis. Leo laoreet vehicula
+            lobortis et, fames lacus. Rutrum magna leo tellus eget mus tristique. Et
+            eu orci mattis ipsum litora in mauris lacus scelerisque. Non lectus
+            cubilia hac, morbi a eleifend efficitur per. Egestas eros hac euismod,
+            rhoncus euismod aliquam! Ut quisque ante himenaeos; at habitasse sem.
+            Tortor cursus mauris diam scelerisque pulvinar lobortis. Eleifend
+            scelerisque fames viverra, porta felis montes auctor. Maecenas facilisi
+            id efficitur elementum consectetur risus. Tempor ullamcorper quisque;
+            euismod imperdiet tempus dictum pharetra. Quis vel sed quis montes orci
+            torquent potenti. Habitant congue curabitur, netus cras arcu conubia.
+            Blandit nibh nulla quis finibus risus torquent dignissim neque.
+        </div>
+        <div class="data3" id="content">EYO IT DOES WORK</div>
+        <div class="data4" id="content">Yoyo data haha</div>
+        <div class="data5" id="content">
+            <h1>My Flexbox</h1>
+            <div class="parent">
+                <div class="child1">
+                    This is the <br />
+                    2nd div. 1st item
+                </div>
+                <div class="child2">
+                    This is the <br />
+                    3rd divison. 2nd item
+                </div>
+                <div class="child3">
+                    This is the <br />
+                    4th vision. 3rd item
+                </div>
+                <div class="child1">
+                    This is the <br />
+                    2nd div. 1st item
+                </div>
+                <div class="child2">
+                    This is the <br />
+                    3rd divison. 2nd item
+                </div>
+                <div class="child3">
+                    This is the <br />
+                    4th vision. 3rd item
+                </div>
+                <div class="child1">
+                    This is the <br />
+                    2nd div. 1st item
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="card" onclick="toggleFlexDirection(); data1()">
+                <div class="card__mainDetails">
+                    <div class="card__mainDetails__header">
+                        <p>16 Jan, 2025</p>
+                        <img src="" alt="Bookmark">
+                    </div>
+
+                    <div class="card__mainDetails__company">
+                        <div>
+                            <h3>Pepsi</h3>
+                            <h1>Warehouse Manager</h1>
+                        </div>
+
+                        <img src="" alt="logo picture" class="companyLogo">
+                    </div>
+
+                    <div class="card__mainDetails__jobCondition">
+                        <p>Full-time</p>
+                        <p>On-site</p>
+                        <p>Shift Work</p>
+                        <p>Fast-paced Environtment</p>
+                    </div>
+                </div>
+
+                <div class="card__moreDetails">
+                    <div>
+                        <h2>RM 7,500/month</h2>
+                        <p>Selangor, Malaysia</p>
+                    </div>
+                    <button>Details</button>
+                </div>
+            </div>
+            <div class="card" onclick="toggleFlexDirection(); data2()">
+                <div class="card__mainDetails">
+                    <div class="card__mainDetails__header">
+                        <p>16 Jan, 2025</p>
+                        <img src="" alt="Bookmark">
+                    </div>
+
+                    <div class="card__mainDetails__company">
+                        <div>
+                            <h3>Pepsi</h3>
+                            <h1>Warehouse Manager</h1>
+                        </div>
+
+                        <img src="" alt="logo picture" class="companyLogo">
+                    </div>
+
+                    <div class="card__mainDetails__jobCondition">
+                        <p>Full-time</p>
+                        <p>On-site</p>
+                        <p>Shift Work</p>
+                        <p>Fast-paced Environtment</p>
+                    </div>
+                </div>
+
+                <div class="card__moreDetails">
+                    <div>
+                        <h2>RM 7,500/month</h2>
+                        <p>Selangor, Malaysia</p>
+                    </div>
+                    <button>Details</button>
+                </div>
+            </div>
+            <div class="card" onclick="toggleFlexDirection(); data3()">
+                <div class="card__mainDetails">
+                    <div class="card__mainDetails__header">
+                        <p>16 Jan, 2025</p>
+                        <img src="" alt="Bookmark">
+                    </div>
+
+                    <div class="card__mainDetails__company">
+                        <div>
+                            <h3>Pepsi</h3>
+                            <h1>Warehouse Manager</h1>
+                        </div>
+
+                        <img src="" alt="logo picture" class="companyLogo">
+                    </div>
+
+                    <div class="card__mainDetails__jobCondition">
+                        <p>Full-time</p>
+                        <p>On-site</p>
+                        <p>Shift Work</p>
+                        <p>Fast-paced Environtment</p>
+                    </div>
+                </div>
+
+                <div class="card__moreDetails">
+                    <div>
+                        <h2>RM 7,500/month</h2>
+                        <p>Selangor, Malaysia</p>
+                    </div>
+                    <button>Details</button>
+                </div>
+            </div>
+            <div class="card" onclick="toggleFlexDirection(); data4()">
+                <div class="card__mainDetails">
+                    <div class="card__mainDetails__header">
+                        <p>16 Jan, 2025</p>
+                        <img src="" alt="Bookmark">
+                    </div>
+
+                    <div class="card__mainDetails__company">
+                        <div>
+                            <h3>Pepsi</h3>
+                            <h1>Warehouse Manager</h1>
+                        </div>
+
+                        <img src="" alt="logo picture" class="companyLogo">
+                    </div>
+
+                    <div class="card__mainDetails__jobCondition">
+                        <p>Full-time</p>
+                        <p>On-site</p>
+                        <p>Shift Work</p>
+                        <p>Fast-paced Environtment</p>
+                    </div>
+                </div>
+
+                <div class="card__moreDetails">
+                    <div>
+                        <h2>RM 7,500/month</h2>
+                        <p>Selangor, Malaysia</p>
+                    </div>
+                    <button>Details</button>
+                </div>
+            </div>
+            <div class="card" onclick="toggleFlexDirection(); data5()">
+                <div class="card__mainDetails">
+                    <div class="card__mainDetails__header">
+                        <p>16 Jan, 2025</p>
+                        <img src="" alt="Bookmark">
+                    </div>
+
+                    <div class="card__mainDetails__company">
+                        <div>
+                            <h3>Pepsi</h3>
+                            <h1>Warehouse Manager</h1>
+                        </div>
+
+                        <img src="" alt="logo picture" class="companyLogo">
+                    </div>
+
+                    <div class="card__mainDetails__jobCondition">
+                        <p>Full-time</p>
+                        <p>On-site</p>
+                        <p>Shift Work</p>
+                        <p>Fast-paced Environtment</p>
+                    </div>
+                </div>
+
+                <div class="card__moreDetails">
+                    <div>
+                        <h2>RM 7,500/month</h2>
+                        <p>Selangor, Malaysia</p>
+                    </div>
+                    <button>Details</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container1">
+            <div class="emptySpace"></div>
+        </div>
+    </div>
+</body>
+
+<script>
+    const container = document.querySelector(".container");
+    const container1 = document.querySelector(".container1");
+    const emptySpace = document.querySelector(".emptySpace");
+    const card1 = document.querySelector(".card")
+    const card__mainDetails = document.querySelector(".card__mainDetails")
+
+    const data1 = () => {
+        const data1 = document.querySelector(".data1");
+        emptySpace.innerHTML = data1.innerHTML;
+        card1.style.backgroundColor = "#FFCCDF";
+        card1.style.borderStyle = "none";
+        card__mainDetails.style.backgroundColor = "#FFCCDF";
+    };
+    const data2 = () => {
+        const data2 = document.querySelector(".data2");
+        emptySpace.innerHTML = data2.innerHTML;
+        card1.style.backgroundColor = "#FFCCDF";
+        card__mainDetails.style.backgroundColor = "#FFCCDF";
+    };
+    const data3 = () => {
+        const data3 = document.querySelector(".data3");
+        emptySpace.innerHTML = data3.innerHTML;
+    };
+    const data4 = () => {
+        const data4 = document.querySelector(".data4");
+        emptySpace.innerHTML = data4.innerHTML;
+    };
+    const data5 = () => {
+        const data5 = document.querySelector(".data5");
+        emptySpace.innerHTML = data5.innerHTML;
+    };
+
+    function toggleFlexDirection() {
+        if (container.style.flexDirection === "column") {
+            // container.style.flexDirection = "row";
+            // container.style.marginLeft = "0";
+            // container.style.flexGrow = 4;
+            // container1.style.visibility = "hidden";
+            // container1.style.position = "absolute";
+        } else {
+            container.style.width = "300px";
+            container.style.marginLeft = "35vh";
+            container.style.flexGrow = 0;
+
+            container1.style.visibility = "visible";
+            container1.style.position = "relative";
+            container1.style.flexGrow = 4;
+        }
+    }
+</script>
+
+</html>
