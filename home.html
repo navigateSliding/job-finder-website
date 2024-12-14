@@ -2,36 +2,117 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="./style.css">
-  <title>The card</title>
+  <title>Homepage</title>
   <style>
-    * {
-      box-sizing: content-box;
+    #home a {
+      font-weight: bold;
     }
 
-    body,
-    h1,
-    h2,
-    h3,
-    h4,
-    p,
-    button {
-      font-family: "Poppins", sans-serif;
-      color: #222222;
-      margin: 0;
+    .topBar {
+      margin: 4rem;
     }
 
-    .container {
+    .topBar>*,
+    .topBar>div:first-child>div {
       display: flex;
       justify-content: center;
+      align-items: center;
+
+      position: relative;
+      left: 2vw;
+
+      height: 5vh;
+    }
+
+    .topBar__icons {
+      height: 55%;
+      object-fit: contain;
+    }
+
+    .topBar__searchBar form {
+      position: relative;
+      display: flex;
+      align-items: center;
+
+      border: 1px solid rgba(34%, 34%, 34%, 0.3);
+      border-radius: 30px;
+      width: 35vw;
+      height: 3rem;
+
+      margin-left: 3vw;
+      margin-right: 1.5vw;
+    }
+
+    .topBar__searchBar form label {
+      display: flex;
+      align-items: center;
+      height: 80%;
+      margin: 0 20px;
+    }
+
+    .topBar__searchBar form input {
+      font-family: "Poppins", sans-serif;
+
+      background: transparent;
+      border: 0;
+      outline: none;
+      width: 85%;
+    }
+
+    .topBar__searchBar p {
+      color: #8D99AE;
+      position: absolute;
+      bottom: -90%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .topBar__sortList label {
+      opacity: 0.4;
+    }
+
+    .topBar__sortList * {
+      margin-right: 10px;
+    }
+
+    .topBar__sortList select {
+      color: #222222;
+      border-radius: 5px;
+      height: 55%;
+      background: none;
+      width: 5vw;
+      font-weight: 600;
+    }
+
+    .loadMore {
+      display: flex;
+      justify-content: center;
+
+      margin-bottom: 13vh;
+    }
+
+    .loadMore p {
+      padding: 15px 20px;
+      border-radius: 25px;
+
+      color: #FFFAFA;
+      background-color: #4158A6;
+    }
+
+    .cardContainer {
+      display: flex;
+      justify-content: center;
+
+      margin-top: 3rem;
+      margin-bottom: 3rem;
 
       flex-wrap: wrap;
     }
@@ -39,7 +120,67 @@
 </head>
 
 <body>
-  <div class="container">
+  <nav class="container">
+    <div></div>
+
+    <ul id="nav__links">
+      <li id="home"><a href="./home.html">Home</a></li>
+      <li id="aboutUs"><a href="./about_us.html">About Us</a></li>
+      <li id="contactUs"><a href="./contact_us.html">Contact Us</a></li>
+    </ul>
+
+    <img src="./assets/profile_picture.png" width="50px" onclick="open_profile()">
+
+    <div id="nav__profileWrap">
+      <div id="nav__profileWrap__profileMenu">
+        <a href="./profileMenu/my_profile.html">
+          <p>My Profile</p>
+          <span>></span>
+        </a>
+        <a href="./profileMenu/bookmarks.html">
+          <p>Bookmarks</p>
+          <span>></span>
+        </a>
+        <a href="./profileMenu/help.html">
+          <p>Help</p>
+          <span>></span>
+        </a>
+        <a href="home_not_logged_in.html">
+          <p>Log Out</p>
+          <span>></span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="topBar">
+    <div>
+      <img src="./assets/icons/filterList.png" alt="filter list" class="topBar__icons">
+
+      <div class="topBar__searchBar">
+        <form action="">
+          <label for="search">
+            <img src="./assets/icons/search.png" alt="search icon" class="topBar__icons">
+          </label>
+          <input type="text" name="search" id="search">
+          <p>Upload your resume</p>
+        </form>
+      </div>
+
+      <div class="topBar__sortList">
+        <label for="sort">Sort by:</label>
+        <select name="sort" id="sort">
+          <option value="salary">Salary</option>
+          <option value="relevance">Relevance</option>
+          <option value="newest">Newest</option>
+          <option value="rating">Rating</option>
+        </select>
+        <img src="./assets/icons/sortList.png" alt="sort list" class="topBar__icons">
+      </div>
+    </div>
+  </div>
+
+  <div class="cardContainer">
     <!-- Card 1 -->
     <div class="card">
       <div class="card__mainDetails">
@@ -178,6 +319,50 @@
       </div>
     </div>
   </div>
+
+  <div class="loadMore">
+    <p>Load More</p>
+  </div>
+
+  <footer class="container">
+    <div id="footer__top">
+      <div>
+        <h1>About Us</h1>
+        <p>
+          Job search experience should be simple, seamless, and empowering.
+          Our mission is to connect talented professionals with opportunities
+          that align with their skills, passions, and goals.
+        </p>
+      </div>
+      <div>
+        <h1>Contact</h1>
+        <p>Toll Free: 05526-2329</p>
+        <p>Phone: +60 016-988 3904</p>
+        <p>Email: contactus@jobify.com</p>
+      </div>
+      <div>
+        <h1>Social</h1>
+        <p><a href="#instagram">Instagram</a></p>
+        <p><a href="#twitter-x">Twitter/X</a></p>
+        <p><a href="#linkedin">LinkedIn</a></p>
+      </div>
+    </div>
+    <hr id="footer__divider" />
+    <div id="footer__bottom">
+      <p><small>&copy; 2024 ALL RIGHTS RESERVED BY JOBYFIN</small></p>
+      <h1>
+        <span>J</span>
+        <span>o</span>
+        <span>b</span>
+        <span>y</span>
+        <span>f</span>
+        <span>i</span>
+        <span>n</span>
+      </h1>
+    </div>
+  </footer>
+
+  <script src="./script.js"></script>
 </body>
 
 </html>

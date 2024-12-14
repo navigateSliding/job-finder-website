@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        p,
+        button,
+        input {
+            font-family: "Poppins", sans-serif;
+            color: #222222;
+            margin: 0;
+        }
+
+        h1 {
+            padding-left: 40px;
+            padding-top: 40px;
+            padding-bottom: 20px;
+        }
+
+        /*Body Section*/
+        #All_body {
+            display: flex;
+            flex-direction: row;
+            margin-top: 5vw;
+        }
+
+        /*The button on the left side*/
+        #box_Left-Side {
+            display: flex;
+            flex-direction: column;
+            margin-right: 5vw;
+            margin-left: 18vw;
+            height: 200px;
+            margin-top: 60px;
+        }
+
+        a>button {
+            /*Spesific Button*/
+            height: 50px;
+            width: 130px;
+            color: black;
+            background-color: white;
+            border-radius: 5rem;
+            border: 0.5px solid rgb(209, 213, 219);
+            box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.05);
+        }
+
+        .button_black {
+            /*black button show which page we are on*/
+            color: white;
+            background-color: black;
+            margin: 10px 0px 5px 0px;
+            text-decoration: none;
+            scale: 1.05;
+            font-size: large;
+        }
+
+        .button_normal {
+            /*for the text (inside the button)*/
+            text-decoration: none;
+            color: black;
+            font-size: large;
+            margin: 10px 0px 5px 0px;
+        }
+
+        .button_normal:hover {
+            color: black;
+            background-color: rgb(249, 250, 251);
+            scale: 1.05;
+            border: 1px solid rgb(209, 213, 219);
+            transition: scale 0.1s ease-out;
+            cursor: pointer;
+            box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.10);
+        }
+
+
+        /*Box*/
+        .box_MyProfile-Box {
+            border: 1px solid white;
+            border-radius: 4rem;
+            height: fit-content;
+            width: 45vw;
+            padding: 20px;
+            box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.20);
+        }
+
+        /*Inside the MyProfile Box*/
+        form {
+            display: grid;
+            grid-template-columns: 18vw 18vw;
+            padding-bottom: 200px;
+            height: 10vw;
+            margin-left: 5%;
+        }
+
+        .form_First-Secondname {
+            padding-top: 20px;
+            padding-left: 30px;
+            font-size: 15px;
+            padding-bottom: 10px;
+        }
+
+        .form_Email-Telephone {
+            grid-column: 1 / span 2;
+            padding-top: 20px;
+            padding-left: 30px;
+            font-size: 15px;
+            padding-bottom: 10px;
+        }
+
+        input {
+            width: 100%;
+            height: 60%;
+            border-radius: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border: 0.1px solid rgb(209, 213, 219);
+            text-indent: 15px;
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="container">
+        <div></div>
+
+        <ul id="nav__links">
+            <li id="home"><a href="../home.html">Home</a></li>
+            <li id="aboutUs"><a href="../about_us.html">About Us</a></li>
+            <li id="contactUs"><a href="../contact_us.html">Contact Us</a></li>
+        </ul>
+
+        <img src="../assets/profile_picture.png" width="50px" onclick="open_profile()">
+
+        <div id="nav__profileWrap">
+            <div id="nav__profileWrap__profileMenu">
+                <a href="./my_profile.html">
+                    <p>My Profile</p>
+                    <span>></span>
+                </a>
+                <a href="./bookmarks.html">
+                    <p>Bookmarks</p>
+                    <span>></span>
+                </a>
+                <a href="./help.html">
+                    <p>Help</p>
+                    <span>></span>
+                </a>
+                <a href="home_not_logged_in.html">
+                    <p>Log Out</p>
+                    <span>></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="All_body">
+        <div id="box_Left-Side">
+            <a> <button class="button_black">My Profile</button></a>
+            <a href="bookmarks.html"><button class="button_normal">Bookmarks</button></a>
+            <a href="help.html"><button class="button_normal">Help</button></a>
+        </div>
+        <div class="box_MyProfile-Box">
+            <h1>My Profile</h1>
+            <form action="" method="post">
+                <div class="form_First-Secondname">
+                    <label for="name1"><strong>First Name</strong></label>
+                    <br>
+                    <input type="text" id="name1" name="name1" value="Kiana">
+                </div>
+                <div class="form_First-Secondname">
+                    <label for="name2"><strong>Last Name</strong></label>
+                    <br>
+                    <input type="text" id="name2" name="name2" value="Kaslana">
+                </div>
+                <div class="form_Email-Telephone">
+                    <label for="Email"><strong>Email</strong></label>
+                    <br>
+                    <input type="email" id="Email" name="Email" value="kianakaslana@gmail.com">
+                </div>
+                <div class="form_Email-Telephone">
+                    <label for="phone1"><strong>Phone</strong></label>
+                    <br>
+                    <input type="tel" id="phone1" name="phone1" value="+60 0012-1298-1244">
+                </div>
+        </div>
+        </form>
+    </div>
+    <script src="../script.js"></script>
+</body>
+
+
+</html>
