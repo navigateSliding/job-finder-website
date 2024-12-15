@@ -183,7 +183,7 @@ footer * {
   width: 75%;
   font-size: 0.9rem;
   letter-spacing: 0.05em;
-  margin-bottom: -130px;
+  margin-bottom: min(-20px, -8vw);
   text-align: left;
   flex-direction: column;
 }
@@ -196,7 +196,7 @@ footer * {
 
 #footer__bottom>h1 {
   display: flex;
-  font-size: 15rem;
+  font-size: max(1rem, 15vw);
   justify-content: space-between;
 }
 
@@ -288,11 +288,13 @@ footer * {
   flex: 1;
 }
 
-.card__mainDetails__jobCondition {
+.card__mainDetails__jobCondition,
+.cardFullDetails__jobConditions {
   flex-wrap: wrap;
 }
 
-.card__mainDetails__jobCondition>p {
+.card__mainDetails__jobCondition>p,
+.cardFullDetails__jobConditions>p {
   padding: 10px;
   border: 1px solid #444444;
   border-radius: 15px;

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+
+    <style>
+        .cardFullDetails {
+            display: flex;
+            flex-direction: column;
+            flex: 2;
+
+            overflow: scroll;
+            overflow-x: hidden;
+
+            max-width: 55vw;
+            max-height: 70vh;
+
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+            border-radius: 30px;
+            padding: 5rem;
+        }
+
+        .cardFullDetails>* {
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .cardFullDetails>img {
+            position: relative;
+            left: -10px;
+
+            width: 100px;
+        }
+
+        .cardFullDetails>h2 {
+            font-size: 1.2rem;
+        }
+
+        .cardFullDetails__jobTitle {
+            font-weight: 500;
+        }
+
+        .cardFullDetails__companyName {
+            font-weight: 300;
+        }
+
+        .cardFullDetails>button {
+            max-width: 100px;
+            padding: 12px 8px;
+
+            background-color: #222;
+            border-radius: 10px;
+            color: #FFFAFA;
+        }
+
+        .cardFullDetails__jobConditions {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .cardFullDetails-template {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cardContainer">
+        <div class="cardFullDetails-template">
+            <img src="" alt="Logo Image" class="cardFullDetails__logoImage">
+            <h1 class="cardFullDetails__jobTitle"></h1>
+            <p class="cardFullDetails__companyName"></p>
+
+            <p class="cardFullDetails__location"><span>
+                    <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 269.96 383.02"
+                        width="10px">
+                        <defs>
+                            <style>
+                                .cls-1 {
+                                    fill: #fefefe;
+                                }
+                            </style>
+                        </defs>
+                        <path
+                            d="M137.93,383.02h-6l-5.58-3.79C69.02,291.27-54.54,161.77,27.06,53.41,99.77-43.15,255.37-1.19,269.09,118.5c10.67,93.03-79.04,187.6-125.58,260.73l-5.58,3.79Z" />
+                        <path class="cls-1"
+                            d="M135.67,351.57c-.13.11-1.61.29-1.55-.46-13.96-21.01-29.39-41.03-43.6-61.87C47.15,225.66-12.73,133.89,49.05,61.88c72.72-84.76,210.47-24.13,197.54,87.12-7.15,61.49-71.77,150.26-109.59,199.78-.65.85-1.21,2.69-1.33,2.78Z" />
+                        <path
+                            d="M128.03,67.35c54.9-5.31,93.27,53.92,64.97,101.52-26.3,44.24-91.2,43.79-116.69-.93-24-42.1,3.45-95.92,51.72-100.59Z" />
+                        <path class="cls-1"
+                            d="M129.52,89.8c60.46-6.87,68.44,84.57,9.53,89.61-58.69,5.01-66.87-83.09-9.53-89.61Z" />
+                    </svg>
+                </span> </p>
+
+            <button>Apply Now</button>
+
+            <h2>Key Responsibilities</h2>
+            <ul class="cardFullDetails__responsibilities">
+
+            </ul>
+
+            <h2>What We Offer</h2>
+            <ul class="cardFullDetails__whatWeOffer">
+
+            </ul>
+
+            <h2>Job Conditions</h2>
+            <div class="cardFullDetails__jobConditions">
+
+            </div>
+
+            <h2>Employer Questions</h2>
+            <p>Your application will include the following questions:</p>
+            <ul class="cardFullDetails__employerQuestions">
+
+            </ul>
+        </div>
+    </div>
+
+    <!-- <div class="cardFullDetails">
+        <img src="" alt="Logo Image">
+        <h1 class="cardFullDetails__jobTitle">Warehouse Manager</h1>
+        <p class="cardFullDetails__companyName">Pepsi</p>
+
+        <p class="cardFullDetails__location"><span>
+                <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 269.96 383.02"
+                    width="10px">
+                    <defs>
+                        <style>
+                            .cls-1 {
+                                fill: #fefefe;
+                            }
+                        </style>
+                    </defs>
+                    <path
+                        d="M137.93,383.02h-6l-5.58-3.79C69.02,291.27-54.54,161.77,27.06,53.41,99.77-43.15,255.37-1.19,269.09,118.5c10.67,93.03-79.04,187.6-125.58,260.73l-5.58,3.79Z" />
+                    <path class="cls-1"
+                        d="M135.67,351.57c-.13.11-1.61.29-1.55-.46-13.96-21.01-29.39-41.03-43.6-61.87C47.15,225.66-12.73,133.89,49.05,61.88c72.72-84.76,210.47-24.13,197.54,87.12-7.15,61.49-71.77,150.26-109.59,199.78-.65.85-1.21,2.69-1.33,2.78Z" />
+                    <path
+                        d="M128.03,67.35c54.9-5.31,93.27,53.92,64.97,101.52-26.3,44.24-91.2,43.79-116.69-.93-24-42.1,3.45-95.92,51.72-100.59Z" />
+                    <path class="cls-1"
+                        d="M129.52,89.8c60.46-6.87,68.44,84.57,9.53,89.61-58.69,5.01-66.87-83.09-9.53-89.61Z" />
+                </svg>
+            </span> Selangor, Malaysia</p>
+
+        <button>Apply Now</button>
+
+        <h2>Key Responsibilities</h2>
+        <ul class="cardFullDetails__responsibilities">
+            <li>Oversee inventory control and conduct audits.</li>
+            <li>Manage inbound and outbound shipments.</li>
+            <li>Supervise and train warehouse staff.</li>
+            <li>Ensure health & safety compliance.</li>
+            <li>Optimize warehouse space and processes.</li>
+            <li>Maintain equipment and report issues.</li>
+            <li>Coordinate with logistics and customer service teams.</li>
+            <li>Monitor and report on warehouse performance.</li>
+            <li>Identify and implement process improvements.</li>
+            <li>Control costs while maintaining efficiency.</li>
+        </ul>
+
+        <h2>What We Offer</h2>
+        <ul class="cardFullDetails__whatWeOffer">
+            <li>Competitive salary and benefits.</li>
+            <li>Career growth opportunities within a global company.</li>
+            <li>Comprehensive health and retirement benefits.</li>
+            <li>Work-life balance and flexible hours.</li>
+        </ul>
+
+        <h2>Job Conditions</h2>
+        <div class="cardFullDetails__jobConditions">
+            <p>Full-time</p>
+            <p>On-site</p>
+            <p>Shift Work</p>
+            <p>Fast-paced Environtment</p>
+        </div>
+
+        <h2>Employer Questions</h2>
+        <p>Your application will include the following questions:</p>
+        <ul class="cardFullDetails__employerQuestions">
+            <li>What strategies do you use to reduce errors in order picking and shipping?</li>
+            <li>How would you manage warehouse shifts to ensure smooth operations 24/7?</li>
+        </ul>
+    </div> -->
+
+    <script>
+        const data_cardFullDetails = [
+            {
+                logoImage: "./assets/companyLogo/Pepsi.png",
+                jobTitle: "Marketing Analyst",
+                companyName: "Pepsi",
+                companyLocation: "Selangor, Malaysia",
+                keyResponsibilities: [
+                    `Oversee inventory control and conduct audits.`,
+                    `Manage inbound and outbound shipments.`,
+                    `Supervise and train warehouse staff.`,
+                    `Ensure health & safety compliance.`,
+                    `Optimize warehouse space and processes.`,
+                    `Maintain equipment and report issues.`,
+                    `Coordinate with logistics and customer service teams.`,
+                    `Monitor and report on warehouse performance.`,
+                    `Identify and implement process improvements.`,
+                    `Control costs while maintaining efficiency.`,
+                ],
+                whatWeOffer: [
+                    `Competitive salary and benefits.`,
+                    `Career growth opportunities within a global company.`,
+                    `Comprehensive health and retirement benefits.`,
+                    `Work-life balance and flexible hours.`,
+                ],
+                jobConditions: [
+                    `Full-time`,
+                    `On-site`,
+                    `Shift Work`,
+                    `Fast-paced Environtment`,
+                ],
+                employerQuestions: [
+                    `What strategies do you use to reduce errors in order picking and shipping?`,
+                    `How would you manage warehouse shifts to ensure smooth operations 24/7?`,
+                ],
+            },
+            {
+                jobTitle: "Test",
+                companyName: "Ola",
+            }
+        ];
+
+        const templates_cardFullDetails = document.getElementsByClassName("cardFullDetails-template");
+
+        const template_cardFullDetails = templates_cardFullDetails.length ? templates_cardFullDetails[0] : null;
+
+        const cardsContainer = document.getElementsByClassName("cardContainer")[0];
+
+        for (const incident of data_cardFullDetails) {
+            const incidentHTML = template_cardFullDetails.cloneNode(true)
+
+            incidentHTML.classList.remove("cardFullDetails-template")
+            incidentHTML.classList.add("cardFullDetails")
+
+            const logoImageHTML = incidentHTML.getElementsByClassName("cardFullDetails__logoImage")[0];
+            const jobTitleHTML = incidentHTML.getElementsByClassName("cardFullDetails__jobTitle")[0];
+            const companyNameHTML = incidentHTML.getElementsByClassName("cardFullDetails__companyName")[0];
+            const locationHTML = incidentHTML.getElementsByClassName("cardFullDetails__location")[0];
+            const responsibilitiesHTML = incidentHTML.getElementsByClassName("cardFullDetails__responsibilities")[0];
+            const whatweOfferHTML = incidentHTML.getElementsByClassName("cardFullDetails__whatWeOffer")[0];
+            const jobConditionsHTML = incidentHTML.getElementsByClassName("cardFullDetails__jobConditions")[0];
+            const employerQuestionsHTML = incidentHTML.getElementsByClassName("cardFullDetails__employerQuestions")[0];
+
+            logoImageHTML.setAttribute("src", incident.logoImage)
+            jobTitleHTML.textContent = incident.jobTitle
+            companyNameHTML.textContent = incident.companyName;
+            locationHTML.textContent = incident.companyLocation;
+
+            cardsContainer.appendChild(incidentHTML);
+
+            incident.keyResponsibilities.map((paragraph) => {
+                const li = document.createElement("li");
+                li.className = "cardFullDetails__responsibilities"
+
+                li.innerHTML = paragraph;
+
+                responsibilitiesHTML.classList.add("hidden")
+                responsibilitiesHTML.appendChild(li)
+            })
+
+            incident.whatWeOffer.map((paragraph) => {
+                const li = document.createElement("li");
+                li.className = "cardFullDetails__responsibilities"
+
+                li.innerHTML = paragraph;
+
+                whatweOfferHTML.classList.add("hidden")
+                whatweOfferHTML.appendChild(li)
+            })
+
+            incident.jobConditions.map((paragraph) => {
+                const p = document.createElement("p");
+                p.className = "cardFullDetails__responsibilities"
+
+                p.innerHTML = paragraph;
+
+                jobConditionsHTML.classList.add("hidden")
+                jobConditionsHTML.appendChild(p)
+            })
+
+            incident.employerQuestions.map((paragraph) => {
+                const li = document.createElement("li");
+                li.className = "cardFullDetails__responsibilities"
+
+                li.innerHTML = paragraph;
+
+                employerQuestionsHTML.classList.add("hidden")
+                employerQuestionsHTML.appendChild(li)
+            })
+        }
+    </script>
+</body>
+
+</html>

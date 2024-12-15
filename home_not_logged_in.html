@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobyfin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            font-family: "Poppins";
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        nav {
+            position: absolute;
+            top: 5%;
+            right: 5%;
+            display: flex;
+            flex-direction: row;
+            justify-content: right;
+            align-items: center;
+            column-gap: 2vw;
+            z-index: 20;
+        }
+
+        nav a {
+            text-decoration: none;
+        }
+
+        nav div {
+            background-color: #4158A6;
+            border-radius: 10px;
+            padding: 0.4vw;
+        }
+
+        /*0.4vw instead maybe*/
+        #login a {
+            color: #222222
+        }
+
+        #sign_up a {
+            color: #FFFAFA;
+        }
+
+        #carousel_div {
+            position: relative;
+            height: 100vh;
+            background-color: #90A2E0;
+            overflow: hidden;
+        }
+
+        #carousel_div img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        #carousel_arrows {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            padding: 0 2vw 0 2vw;
+            z-index: 10
+        }
+
+        #left_arrow,
+        #right_arrow {
+            display: inline-block;
+            border-top: 0.6vw solid rgb(28, 28, 28);
+            border-right: 0.6vw solid rgb(28, 28, 28);
+            width: 2vw;
+            height: 2vw;
+            cursor: pointer;
+            opacity: 0.4;
+        }
+
+        #left_arrow {
+            transform: rotate(225deg);
+        }
+
+        #right_arrow {
+            transform: rotate(45deg);
+        }
+
+        #left_arrow:hover,
+        #right_arrow:hover {
+            border-color: #696969;
+        }
+
+        #pos_circles {
+            position: absolute;
+            bottom: 10%;
+            display: flex;
+            justify-content: center;
+            column-gap: 2vw;
+            width: 100vw;
+            z-index: 15;
+        }
+
+        #pos_circles div {
+            border-radius: 50%;
+            width: 1vw;
+            height: 1vw;
+            background-color: #696969;
+        }
+
+        .carousel-item {
+            position: absolute;
+            left: 100%;
+            width: 100%;
+            height: 100%;
+            /* Ensure smooth transition */
+        }
+
+        #carousel_1 {
+            transition: left 0.5s ease-in-out;
+        }
+
+        #carousel_2 {
+            transition: left 0.5s ease-in-out;
+        }
+
+        #carousel_3 {
+            transition: left 0.5s ease-in-out;
+        }
+
+        #carousel_text {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            left: 10%;
+            height: 100%;
+            justify-content: center;
+            width: 33vw;
+            row-gap: 5vh;
+        }
+
+        .semi_title_text {
+            font-weight: normal;
+            font-size: 50px;
+        }
+
+        .title_text {
+            font-weight: 700;
+            font-size: 90px;
+            line-height: 80%;
+        }
+
+        .body_text {
+            font-weight: normal;
+            font-size: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="carousel_div">
+
+        <nav>
+            <span id=login><a href="login.html">Login</a></span>
+            <div><span id=sign_up><a href="signup.html">Sign up</a></span></div>
+        </nav>
+
+        <div id="carousel_1" class="carousel-item">
+            <img src="./assets/homepage_carousel/img_3.png">
+            <div id="carousel_text">
+                <span class="title_text">NOTABLE EMPLOYERS</span>
+                <span class="body_text">Get exclusive job listings by elite companies such as Apple, Nvidia, Meta and
+                    others</span>
+            </div>
+        </div>
+
+        <div id="carousel_2" class="carousel-item">
+            <img src="./assets/homepage_carousel/img_1.png">
+            <div id="carousel_text">
+                <span class="semi_title_text">YOUR NEW JOURNEY</span>
+                <span class="title_text">FIND A NEW JOB!</span>
+                <span class="body_text">Join a community of over 200.000 people worldwide in finding the perfect
+                    opportunity to progress your career</span>
+            </div>
+        </div>
+
+        <div id="carousel_3" class="carousel-item">
+            <img src="./assets/homepage_carousel/img_2.png">
+            <div id="carousel_text">
+                <span class="title_text">WHY JOBYFIN?</span>
+                <ul>
+                    <li class="body_text">Personalized recommendations</li>
+                    <li class="body_text">Useful resources</li>
+                    <li class="body_text">Intuitive user interface</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="pos_circles">
+            <div id="circle_1"></div>
+            <div id="circle_2"></div>
+            <div id="circle_3"></div>
+        </div>
+
+        <div id="carousel_arrows">
+            <div><span id="left_arrow"></span></div>
+            <div><span id="right_arrow"></span></div>
+
+        </div>
+    </div>
+
+    <script>
+        const left_arrow = document.getElementById("left_arrow");
+        const right_arrow = document.getElementById("right_arrow");
+        const carousel_3 = document.getElementById("carousel_3");
+        const carousel_2 = document.getElementById("carousel_2");
+        const carousel_1 = document.getElementById("carousel_1");
+        const circle_1 = document.getElementById("circle_1");
+        const circle_2 = document.getElementById("circle_2");
+        const circle_3 = document.getElementById("circle_3");
+
+        let i = 0;
+        let j = 1;
+        let k = 2;
+
+        const screens = [carousel_1, carousel_2, carousel_3];
+
+        function update_slide() {
+            screens[i].style.left = "-100%"; // always left slide
+            screens[j].style.left = "0"; // always current slide
+            screens[k].style.left = "100%"; // always right slide
+
+            //Reset Color
+            circle_1.style.backgroundColor = "#696969"
+            circle_2.style.backgroundColor = "#696969"
+            circle_3.style.backgroundColor = "#696969"
+
+            //Update Color
+            if (screens[j] == carousel_1) {
+                circle_1.style.backgroundColor = "white"
+            }
+            else if (screens[j] == carousel_2) {
+                circle_2.style.backgroundColor = "white"
+            }
+            else if (screens[j] == carousel_3) {
+                circle_3.style.backgroundColor = "white"
+            }
+        }
+
+        function previous_slide() {
+            screens[i].style.transition = "left 0.5s ease-in-out" //removes animation of wrapping object
+            i = (i - 1 + 3) % 3; // i.e. 0 -> 2 -> 1 -> (repeat) (wraps around if >= 3)
+            j = (j - 1 + 3) % 3; // i.e. 1 -> 0 -> 2 -> (repeat)
+            k = (k - 1 + 3) % 3; // i.e. 2 -> 1 -> 0 -> (repeat)
+            screens[i].style.transition = "none"
+            update_slide();
+        }
+
+        function next_slide() {
+            screens[k].style.transition = "left 0.5s ease-in-out" //removes animation of wrapping object
+            i = (i + 1) % 3;
+            j = (j + 1) % 3;
+            k = (k + 1) % 3;
+            screens[k].style.transition = "none"
+            update_slide();
+        }
+
+
+        update_slide(); // position at start!
+
+        left_arrow.addEventListener("click", previous_slide);
+        right_arrow.addEventListener("click", next_slide);
+    </script>
+</body>
+
+</html>
