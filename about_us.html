@@ -18,8 +18,8 @@
 
     section {
       margin: 0 7% 5rem 7%;
-      margin-bottom: 5rem;
-      margin-top: 3rem;
+      margin-bottom: 5.5vw;
+      margin-top: 3.5vw;
     }
 
     section h1 {
@@ -41,7 +41,7 @@
     }
 
     section>p {
-      font-size: 2.5rem;
+      font-size: max(1.2rem, 2vw);
       font-weight: 600;
       text-align: left;
       margin-left: 3.5rem;
@@ -51,7 +51,7 @@
     .divider {
       border: none;
       border-bottom: 1px solid #222;
-      margin: 5rem 0;
+      margin: max(3rem, 5vw) 0;
     }
 
     .founders {
@@ -70,7 +70,7 @@
       width: 17vw;
       height: 20vw;
       background-color: #9e9e9e;
-      border-radius: 35px;
+      border-radius: max(15px, 2vw);
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       margin-bottom: 0.5rem;
       /* 与文字保持间距 */
@@ -91,8 +91,41 @@
 
     .founder-text p {
       font-size: 0.9rem;
+      padding-bottom: 3rem;
       color: #555;
       margin: 0;
+    }
+
+    @media (max-width: 500px) {
+      .founder-card {
+        display: flex;
+        flex-direction: column;
+        width: 45vw !important;
+        height: 48vw !important;
+      }
+    }
+
+    @media (max-width: 1000px) {
+      .founders {
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .founder-card {
+        width: 30vw;
+        height: 33vw;
+      }
+    }
+
+    @media (max-width: 1200px) {
+
+      section,
+      section>p,
+      section>h1,
+      .founders {
+        margin-right: 2rem;
+        margin-left: 2rem;
+      }
     }
   </style>
 </head>
