@@ -59,10 +59,12 @@ nav>img {
   text-decoration: none;
   font-size: 1rem;
   font-weight: 500;
+
+  transition: color 0.15s ease-in;
 }
 
 #nav__links a:hover {
-  color: #555;
+  color: #797979;
 }
 
 #nav__profileWrap {
@@ -203,7 +205,7 @@ footer * {
   display: flex;
   padding: 18px;
   flex-direction: column;
-  width: 375px;
+  width: 400px;
   margin: 30px;
 
   border: 1px solid #222222;
@@ -224,8 +226,11 @@ footer * {
 }
 
 .card__mainDetails {
+  display: flex;
+  flex-direction: column;
   background-color: rgb(204, 204, 204);
   margin-bottom: 10px;
+  flex: 2;
 }
 
 .card__mainDetails__header {
@@ -236,6 +241,12 @@ footer * {
 
 .card__mainDetails__header>svg {
   align-items: center;
+  cursor: pointer;
+  transition: fill 0.15s ease-in;
+}
+
+.card__mainDetails__header>svg:hover {
+  fill: #585858;
 }
 
 .card__mainDetails__header>* {
@@ -247,18 +258,34 @@ footer * {
   background-color: #f1f1f1;
 }
 
+.card__mainDetails__company {
+  flex: 1;
+}
+
 .card__mainDetails__company>div>*,
 .card__mainDetails__company>div {
   margin: 10px 10px 15px 0px;
+  align-content: center;
+}
+
+.card__mainDetails__company>div {
+  flex: 3;
+}
+
+.card__mainDetails__company>div>h1 {
+  font-size: 1.6rem;
 }
 
 .card__mainDetails__company>div>h3 {
   font-weight: 400;
+  font-size: 1rem;
   margin-bottom: 0px;
 }
 
 .companyLogo {
   align-self: center;
+  width: 80px;
+  flex: 1;
 }
 
 .card__mainDetails__jobCondition {
@@ -267,10 +294,11 @@ footer * {
 
 .card__mainDetails__jobCondition>p {
   padding: 10px;
-  border: 1px solid #222222;
+  border: 1px solid #444444;
   border-radius: 15px;
   margin: 0px 8px 10px 0px;
   font-size: 0.8rem;
+  color: #444444;
 }
 
 .card__moreDetails {
@@ -285,8 +313,8 @@ footer * {
   flex-direction: column;
 }
 
-.card__moreDetails>div:first-child>* {
-  margin: 0px;
+.card__moreDetails>div p {
+  opacity: 0.5;
 }
 
 .card__moreDetails>button {
