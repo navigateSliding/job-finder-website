@@ -12,6 +12,12 @@
         rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
     <style>
+        .cardContainer>div:first-child::-webkit-scrollbar,
+        .cardFullDetails::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Card */
         .card-template {
             display: none;
         }
@@ -24,80 +30,190 @@
             margin-bottom: 3rem;
         }
 
-        .cardContainer>div {
+        .cardContainer>div:first-child {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
+            overflow: scroll;
 
             width: 85vw;
+        }
+
+        /* More Details */
+        .cardFullDetails {
+            display: none;
+            flex-direction: column;
+            flex: 2;
+
+            overflow: scroll;
+            overflow-x: hidden;
+
+            max-width: 45vw;
+            max-height: 70vh;
+
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+            border-radius: 30px;
+            padding: 5rem;
+            margin-right: 10vw;
+            margin-top: 3rem;
+        }
+
+        .cardFullDetails>* {
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .cardFullDetails>img {
+            position: relative;
+            left: -10px;
+
+            width: 100px;
+        }
+
+        .cardFullDetails>h2 {
+            font-size: 1.2rem;
+        }
+
+        .cardFullDetails__jobTitle {
+            font-weight: 500;
+        }
+
+        .cardFullDetails__companyName {
+            font-weight: 300;
+        }
+
+        .cardFullDetails>button {
+            max-width: 100px;
+            padding: 12px 8px;
+
+            background-color: #222;
+            border-radius: 10px;
+            color: #FFFAFA;
+        }
+
+        .cardFullDetails__jobConditions {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .cardFullDetails-template {
+            display: none;
         }
     </style>
 </head>
 
 <body class="PageType">
-    <div class="card-template">
-        <div class="card__mainDetails" id="card__mainDetails1">
-            <div class="card__mainDetails__header">
-                <p class="card__mainDetails__header__date"></p>
-                <svg id="bookmarkIcon" data-name="off" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 238 238"
-                    width="38px" height="38px" onclick="bookmarkToggle('bookmarkIcon')">
-                    <defs>
-                        <style>
-                            .cls-1 {
-                                fill: #f1f1f1;
-                            }
-                        </style>
-                    </defs>
-                    <circle class="cls-1" cx="119" cy="119" r="119" />
-                    <path
-                        d="M166.05,53.16c5.01,1.14,8.31,4.4,8.74,9.65v112.11c-.26,8.89-10.7,12.84-17.23,7.19l-38.47-36.88c-1.37,1.15-2.78,2.35-4.09,3.57-10.8,10.15-21.05,21.01-32,30.99-2.23,2.03-4.8,4.52-7.91,4.94-6.18.85-11.69-3.56-11.9-9.82V63.05c.39-5.35,3.45-8.49,8.49-9.89h94.36ZM163.48,64.22h-88.96v107.99l44.39-42.4,44.57,42.4v-107.99Z" />
-                </svg>
-            </div>
-
-            <div class="card__mainDetails__company">
-                <div>
-                    <h3 class="card__mainDetails__company__name"></h3>
-                    <h1 class="card__mainDetails__company__jobTitle"></h1>
-                </div>
-
-                <img src="./assets/companyLogo/Pepsi.png" alt="logo picture" class="companyLogo" />
-            </div>
-
-            <div class="card__mainDetails__jobCondition">
-            </div>
-        </div>
-
-        <div class="card__moreDetails">
-            <div>
-                <h2 class="card__moreDetails__wage"></h2>
-                <p class="card__moreDetails__location"> <span>
-                        <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 269.96 383.02" width="10px">
+    <div class="cardContainer">
+        <div class="cardContainer1">
+            <div class="card-template">
+                <div class="card__mainDetails" id="card__mainDetails1">
+                    <div class="card__mainDetails__header">
+                        <p class="card__mainDetails__header__date"></p>
+                        <svg id="bookmarkIcon" data-name="off" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 238 238"
+                            width="38px" height="38px">
                             <defs>
                                 <style>
                                     .cls-1 {
-                                        fill: #fefefe;
+                                        fill: #f1f1f1;
                                     }
                                 </style>
                             </defs>
+                            <circle class="cls-1" cx="119" cy="119" r="119" />
                             <path
-                                d="M137.93,383.02h-6l-5.58-3.79C69.02,291.27-54.54,161.77,27.06,53.41,99.77-43.15,255.37-1.19,269.09,118.5c10.67,93.03-79.04,187.6-125.58,260.73l-5.58,3.79Z" />
-                            <path class="cls-1"
-                                d="M135.67,351.57c-.13.11-1.61.29-1.55-.46-13.96-21.01-29.39-41.03-43.6-61.87C47.15,225.66-12.73,133.89,49.05,61.88c72.72-84.76,210.47-24.13,197.54,87.12-7.15,61.49-71.77,150.26-109.59,199.78-.65.85-1.21,2.69-1.33,2.78Z" />
-                            <path
-                                d="M128.03,67.35c54.9-5.31,93.27,53.92,64.97,101.52-26.3,44.24-91.2,43.79-116.69-.93-24-42.1,3.45-95.92,51.72-100.59Z" />
-                            <path class="cls-1"
-                                d="M129.52,89.8c60.46-6.87,68.44,84.57,9.53,89.61-58.69,5.01-66.87-83.09-9.53-89.61Z" />
+                                d="M166.05,53.16c5.01,1.14,8.31,4.4,8.74,9.65v112.11c-.26,8.89-10.7,12.84-17.23,7.19l-38.47-36.88c-1.37,1.15-2.78,2.35-4.09,3.57-10.8,10.15-21.05,21.01-32,30.99-2.23,2.03-4.8,4.52-7.91,4.94-6.18.85-11.69-3.56-11.9-9.82V63.05c.39-5.35,3.45-8.49,8.49-9.89h94.36ZM163.48,64.22h-88.96v107.99l44.39-42.4,44.57,42.4v-107.99Z" />
                         </svg>
-                    </span>
-                </p>
-            </div>
-            <button>Details</button>
-        </div>
-    </div>
-    <div class="cardContainer">
-        <div class="cardContainer1">
+                    </div>
 
+                    <div class="card__mainDetails__company">
+                        <div>
+                            <h3 class="card__mainDetails__company__name"></h3>
+                            <h1 class="card__mainDetails__company__jobTitle"></h1>
+                        </div>
+
+                        <img src="./assets/companyLogo/Pepsi.png" alt="logo picture" class="companyLogo" />
+                    </div>
+
+                    <div class="card__mainDetails__jobCondition">
+                    </div>
+                </div>
+
+                <div class="card__moreDetails">
+                    <div>
+                        <h2 class="card__moreDetails__wage"></h2>
+                        <p class="card__moreDetails__location"> <span>
+                                <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 269.96 383.02" width="10px">
+                                    <defs>
+                                        <style>
+                                            .cls-1 {
+                                                fill: #fefefe;
+                                            }
+                                        </style>
+                                    </defs>
+                                    <path
+                                        d="M137.93,383.02h-6l-5.58-3.79C69.02,291.27-54.54,161.77,27.06,53.41,99.77-43.15,255.37-1.19,269.09,118.5c10.67,93.03-79.04,187.6-125.58,260.73l-5.58,3.79Z" />
+                                    <path class="cls-1"
+                                        d="M135.67,351.57c-.13.11-1.61.29-1.55-.46-13.96-21.01-29.39-41.03-43.6-61.87C47.15,225.66-12.73,133.89,49.05,61.88c72.72-84.76,210.47-24.13,197.54,87.12-7.15,61.49-71.77,150.26-109.59,199.78-.65.85-1.21,2.69-1.33,2.78Z" />
+                                    <path
+                                        d="M128.03,67.35c54.9-5.31,93.27,53.92,64.97,101.52-26.3,44.24-91.2,43.79-116.69-.93-24-42.1,3.45-95.92,51.72-100.59Z" />
+                                    <path class="cls-1"
+                                        d="M129.52,89.8c60.46-6.87,68.44,84.57,9.53,89.61-58.69,5.01-66.87-83.09-9.53-89.61Z" />
+                                </svg>
+                            </span>
+                        </p>
+                    </div>
+                    <button class="card__moreDetails__button">Details</button>
+                </div>
+            </div>
+        </div>
+        <div class="cardFullDetails-template">
+            <img src="" alt="Logo Image" class="cardFullDetails__logoImage">
+            <h1 class="cardFullDetails__jobTitle"></h1>
+            <p class="cardFullDetails__companyName"></p>
+
+            <p class="cardFullDetails__location"><span>
+                    <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 269.96 383.02"
+                        width="10px">
+                        <defs>
+                            <style>
+                                .cls-1 {
+                                    fill: #fefefe;
+                                }
+                            </style>
+                        </defs>
+                        <path
+                            d="M137.93,383.02h-6l-5.58-3.79C69.02,291.27-54.54,161.77,27.06,53.41,99.77-43.15,255.37-1.19,269.09,118.5c10.67,93.03-79.04,187.6-125.58,260.73l-5.58,3.79Z" />
+                        <path class="cls-1"
+                            d="M135.67,351.57c-.13.11-1.61.29-1.55-.46-13.96-21.01-29.39-41.03-43.6-61.87C47.15,225.66-12.73,133.89,49.05,61.88c72.72-84.76,210.47-24.13,197.54,87.12-7.15,61.49-71.77,150.26-109.59,199.78-.65.85-1.21,2.69-1.33,2.78Z" />
+                        <path
+                            d="M128.03,67.35c54.9-5.31,93.27,53.92,64.97,101.52-26.3,44.24-91.2,43.79-116.69-.93-24-42.1,3.45-95.92,51.72-100.59Z" />
+                        <path class="cls-1"
+                            d="M129.52,89.8c60.46-6.87,68.44,84.57,9.53,89.61-58.69,5.01-66.87-83.09-9.53-89.61Z" />
+                    </svg>
+                </span> </p>
+
+            <button>Apply Now</button>
+
+            <h2>Key Responsibilities</h2>
+            <ul class="cardFullDetails__responsibilities">
+
+            </ul>
+
+            <h2>What We Offer</h2>
+            <ul class="cardFullDetails__whatWeOffer">
+
+            </ul>
+
+            <h2>Job Conditions</h2>
+            <div class="cardFullDetails__jobConditions">
+
+            </div>
+
+            <h2>Employer Questions</h2>
+            <p>Your application will include the following questions:</p>
+            <ul class="cardFullDetails__employerQuestions">
+
+            </ul>
         </div>
     </div>
 

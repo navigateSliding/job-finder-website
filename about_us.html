@@ -57,13 +57,14 @@
     .founders {
       display: flex;
       justify-content: space-between;
-      gap: 0.25rem;
+      gap: 2rem;
       margin-left: 3.5rem;
     }
 
     .founder-card-wrapper {
       display: flex;
       flex-direction: column;
+      width: 40vh;
     }
 
     .founder-card {
@@ -79,9 +80,10 @@
     .founder-text {
       text-align: left;
       /* 左对齐文字 */
-      width: 100%;
+      width: 80%;
       /* 保持宽度与卡片一致 */
       margin-top: 1rem;
+      margin-left: 10%;
     }
 
     .founder-text h4 {
@@ -96,7 +98,7 @@
       margin: 0;
     }
 
-    @media (max-width: 500px) {
+    @media (max-width: 925px) {
       .founder-card {
         display: flex;
         flex-direction: column;
@@ -111,9 +113,14 @@
         align-items: center;
       }
 
+
+      .founder-text {
+        margin-left: 2%;
+      }
+
       .founder-card {
-        width: 30vw;
-        height: 33vw;
+        width: 27vw;
+        height: 30vw;
       }
     }
 
@@ -184,28 +191,28 @@
           <div class="founder-card"></div>
           <div class="founder-text">
             <h4>Name</h4>
-            <p>What they did</p>
+            <p>Website Designer, Homepage (Logged in)</p>
           </div>
         </div>
         <div class="founder-card-wrapper">
           <div class="founder-card"></div>
           <div class="founder-text">
             <h4>Name</h4>
-            <p>What they did</p>
+            <p>Navigation, Footer, About Us</p>
           </div>
         </div>
         <div class="founder-card-wrapper">
           <div class="founder-card"></div>
           <div class="founder-text">
             <h4>Name</h4>
-            <p>What they did</p>
+            <p>Contact Us, My Profile, Bookmarks, Help</p>
           </div>
         </div>
         <div class="founder-card-wrapper">
           <div class="founder-card"></div>
           <div class="founder-text">
             <h4>Name</h4>
-            <p>What they did</p>
+            <p>Homepage (Logged Out), Login, Register</p>
           </div>
         </div>
       </div>

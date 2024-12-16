@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+
+    @media (max-width: 600px) {
+      .footer__top {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer__divider {
+        width: 100%;
+      }
+
+      .footer__bottom {
+        width: 100%;
+      }
+
+      .footer__bottom__logo {
+        max-width: 200px;
+      }
+    }
+
+    #form_container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      background-color: #F1F9FF;
+      box-sizing: border-box;
+      height: 100vh;
+    }
+
+    #form_container * {
+      box-sizing: border-box;
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: 12vw 12vw;
+      grid-template-rows: 2fr 2fr 2fr 2fr 2fr 1fr 2fr;
+      column-gap: 3%;
+      row-gap: 3%;
+      padding: 5%;
+      margin-top: 2vh;
+      margin-bottom: 2vh;
+      border-radius: 3vw;
+      background-color: #FFFFFF;
+      box-shadow: 0px 0.2vw 0.2vw hsl(0, 0%, 0%, 0.25);
+      text-align: center;
+      font-family: "poppins", serif;
+      height: 80vh;
+      transition: ease all 0.3s;
+      overflow-y: auto;
+      /*adds vertical scrollbar for smaller screens*/
+      overflow-x: hidden;
+      /*removes horizontal scrollbar*/
+    }
+
+    #email,
+    #password,
+    #submit,
+    #first_name,
+    #last_name,
+    #password_confirm {
+      border-radius: 0.5rem;
+      border: 1px solid #D9D9D9;
+    }
+
+    #submit {
+      background-color: #4158A6;
+      color: #FFFFFF;
+      padding: 0px;
+      font-weight: bold;
+    }
+
+    #formtitle {
+      font-size: 40px;
+      font-weight: 500;
+      grid-column: span 2;
+    }
+
+    a {
+      color: #222222;
+      font-size: 10px;
+      font-weight: bold;
+      grid-column: span 2;
+    }
+
+    #nodecor {
+      font-weight: normal;
+      display: inline-block;
+    }
+
+    .leftalign {
+      text-align: left;
+    }
+
+    .input_container {
+      position: relative;
+      grid-column: span 2;
+    }
+
+    .span_1 {
+      grid-column: span 1;
+    }
+
+    .span_2 {
+      grid-column: span 2;
+    }
+
+    input {
+      height: 80%;
+      width: 100%;
+    }
+
+    .field_incorrect {
+      display: none;
+      position: absolute;
+      top: 80%;
+      font-size: 11px;
+      color: red;
+      text-align: left;
+      grid-column: span 2;
+      text-wrap: nowrap;
+      /*so it does not go on the 2nd line*/
+    }
+    
+    .negative_margin_top{
+      margin-top: -2vh;
+    }
+
+    @media(max-height: 600px) {
+      form {
+        padding-top: 3%;
+        padding-bottom: 3%;
+      }
+    }
+
+    @media(max-width: 1200px) {
+      #formtitle {
+        font-size: 39px;
+      }
+
+      form {
+        padding-right: 4.8%;
+        padding-bottom: 4.8%;
+        grid-template-columns: 17vw 17vw;
+      }
+    }
+
+    @media(max-width: 1000px) {
+      #formtitle {
+        font-size: 38px;
+      }
+
+      form {
+        padding-right: 4.6%;
+        padding-bottom: 4.6%;
+        grid-template-columns: 22vw 22vw;
+      }
+    }
+
+    @media(max-width: 800px) {
+      #formtitle {
+        font-size: 37px;
+      }
+
+      form {
+        padding-right: 4.4%;
+        padding-bottom: 4.4%;
+        grid-template-columns: 27vw 27vw;
+      }
+    }
+
+    @media(max-width: 600px) {
+      #formtitle {
+        font-size: 36px;
+      }
+
+      form {
+        padding-right: 4.2%;
+        padding-bottom: 4.2%;
+        grid-template-columns: 32vw 32vw;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="form_container">
+    <form action="../home.html" method="get" name="register" onsubmit="return form_validator()">
+      <span id="formtitle">Register</span>
+
+      <div class="input_container span_1">
+        <input type="text" id=first_name name=user_first_name title="Your first name" placeholder="Enter first name" />
+        <span class="field_incorrect"></span>
+      </div>
+
+      <div class="input_container span_1">
+        <input type="text" id=last_name name=user_last_name title="Your last name" placeholder="Enter last name" />
+        <span class="field_incorrect"></span>
+      </div>
+
+      <div class="input_container">
+        <input type="text" id=email name=user_email title="Your email" placeholder="Enter Email" />
+        <span class="field_incorrect"></span>
+      </div>
+
+      <div class="input_container">
+        <input type="password" id=password name=user_password title="Your password" placeholder="Enter Password" />
+        <span class="field_incorrect"></span>
+      </div>
+
+      <div class="input_container">
+        <input type="password" id=password_confirm name=user_password_confirm title="Confirm your password"
+          placeholder="Confirm Password" />
+        <span class="field_incorrect"></span>
+      </div>
+
+      <div class="leftalign span_2 negative_margin_top">
+        <a href="login.html">Login</a>
+      </div>
+
+      <input type="submit" id="submit" class="nopadding span_2" value="Register">
+    </form>
+  </div>
+
+  <script>
+    const first_name = document.getElementById("first_name");
+    const last_name = document.getElementById("last_name");
+    const email = document.getElementById("email");
+    const password = document.getElementById("password");
+    const password_confirm = document.getElementById("password_confirm")
+
+    const need_validation = [first_name, last_name, email, password_confirm, password] //password_confirm first because of password length shenanigans
+    const only_letter = [first_name, last_name]; 
+
+    function wrong(check, incorrect, incorrect_text, form_check) {
+      check.style.border = "1.5px solid red" // makes input red
+      check.value = "" // resets input field
+      incorrect.style.display = "block"; // makes span visible
+      incorrect.textContent = incorrect_text; // tells user what is wrong
+    }
+    function form_validator() {
+      let valid_form = true
+      for (let i = 0; i < need_validation.length; i++) {
+        let field_to_validate = need_validation[i]
+        let field_incorrect = field_to_validate.nextElementSibling; //nexElementSibling makes it the one after field_to_validate which is always my field_incorrect span
+        field_incorrect.style.display = "none"; // goes back to none if correct
+        field_incorrect.textContent = ""; // removes previous error messages
+        field_to_validate.style.border = "1px solid #D9D9D9"; // goes back to normal border if corrected, if still wrong becomes red again
+
+        if (field_to_validate.value == "") {
+          const error_message_empty = "Field cannot be empty";
+          wrong(field_to_validate, field_incorrect, error_message_empty);
+          valid_form = false;
+        }
+
+        else if (only_letter.includes(field_to_validate)) {
+          const special_and_number = /[^a-zA-Z]/; // if does not contain a-z or A-Z
+          if (field_to_validate.value.match(special_and_number)) { //would be null if no match, so if match go ahead
+            const error_message_chars = "Field can only contain letters";
+            wrong(field_to_validate, field_incorrect, error_message_chars);
+            valid_form = false;
+          }
+        }
+
+        else if (field_to_validate == email) {
+          const email_regex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}/ // dot has to be with \. to make its value actually a dot
+          if (!(email.value.match(email_regex))) {
+            const error_message_email = "Enter a valid email address";
+            wrong(field_to_validate, field_incorrect, error_message_email);
+            valid_form = false
+          }
+        }
+
+        else if (field_to_validate == password) {
+          if (field_to_validate.value.length < 8) {
+            const error_message_password_length = "Password must be at least 8 characters long";
+            wrong(field_to_validate, field_incorrect, error_message_password_length);
+            password_confirm.style.border = "1.5px solid red";
+            password_confirm.value = "";
+            let field_incorrect_password_confirm = password_confirm.nextElementSibling;
+            if (!field_incorrect_password_confirm.textContent){
+              field_incorrect_password_confirm.style.display = "block";
+              field_incorrect_password_confirm.textContent = "Main password field incorrect";
+            }
+            valid_form = false;
+          }
+        }
+      }
+
+      if (password.value != password_confirm.value) {
+        const error_message_password = "Passwords Must Be Matching";
+        password.style.border = "1.5px solid red";
+        password_confirm.style.border = "1.5px solid red";
+        let field_incorrect_password = password.nextElementSibling;
+        let field_incorrect_password_confirm = password_confirm.nextElementSibling;
+        field_incorrect_password.style.display = "block";
+        field_incorrect_password_confirm.style.display = "block";
+        field_incorrect_password.textContent = error_message_password;
+        field_incorrect_password_confirm.textContent = error_message_password;
+        valid_form = false
+      }
+
+      if (valid_form == false) {
+        return false
+      }
+    }
+  </script>
+  </main>
+
+  <script src="../script.js"></script>
+</body>
+
+</html>
