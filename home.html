@@ -12,6 +12,10 @@
   <link rel="stylesheet" href="./style.css">
   <title>Homepage</title>
   <style>
+    .hidd {
+      visibility: hidden;
+    }
+
     #home a {
       font-weight: bold;
     }
@@ -73,7 +77,7 @@
       color: #8D99AE;
       position: absolute;
       bottom: -100%;
-      left: 50%;
+      left: 48%;
       transform: translateX(-50%);
       cursor: pointer;
     }
@@ -136,7 +140,7 @@
     .cardFullDetails {
       scrollbar-width: none;
     }
-    
+
     .cardContainer>div:first-child::-webkit-scrollbar,
     .cardFullDetails::-webkit-scrollbar {
       display: none;
@@ -150,7 +154,7 @@
       background-color: #FFE0CC;
     }
 
-    .mcdonaldsColor{
+    .mcdonaldsColor {
       background-color: #D3FFCA;
     }
 
@@ -188,11 +192,11 @@
       overflow-x: hidden;
 
       max-width: 45vw;
-      max-height: 70vh;
+      max-height: 75vh;
 
       box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
       border-radius: 30px;
-      padding: 5rem;
+      padding: 3.5vw 5vw;
       margin-right: 10vw;
       margin-top: 3rem;
     }
@@ -202,7 +206,14 @@
       margin-bottom: 0.5rem;
     }
 
-    .cardFullDetails>img {
+    .cardFullDetails>img:nth-child(1) {
+      margin-bottom: 2rem;
+      width: 35px;
+
+      cursor: pointer;
+    }
+
+    .cardFullDetails>img:nth-child(2) {
       position: relative;
       left: -10px;
 
@@ -228,6 +239,13 @@
       background-color: #222;
       border-radius: 10px;
       color: #FFFAFA;
+
+      cursor: pointer;
+      transition: scale 0.3s ease-out;
+    }
+
+    .cardFullDetails>button:hover {
+      scale: 1.05;
     }
 
     .cardFullDetails__jobConditions {
@@ -237,6 +255,23 @@
 
     .cardFullDetails-template {
       display: none;
+    }
+
+    @media (max-width:1500px) {
+      .cardContainer {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .cardContainer1hid {
+        display: none !important;
+      }
+
+      .cardFullDetails {
+        align-items: center;
+        max-width: 70vw !important;
+        margin: 0;
+      }
     }
 
     @media (max-width:1100px) {
@@ -352,7 +387,7 @@
               <h1 class="card__mainDetails__company__jobTitle"></h1>
             </div>
 
-            <img src="./assets/companyLogo/Pepsi.png" alt="logo picture" class="companyLogo" />
+            <img src="" alt="logo picture" class="companyLogo" />
           </div>
 
           <div class="card__mainDetails__jobCondition">
@@ -389,6 +424,7 @@
       </div>
     </div>
     <div class="cardFullDetails-template">
+      <img src="./assets/backButton.png" alt="" onclick="closeDetails()">
       <img src="" alt="Logo Image" class="cardFullDetails__logoImage">
       <h1 class="cardFullDetails__jobTitle"></h1>
       <p class="cardFullDetails__companyName"></p>
@@ -413,7 +449,7 @@
           </svg>
         </span> </p>
 
-      <button>Apply Now</button>
+      <button class="applyNow" onclick="applyJob();">Apply Now</button>
 
       <h2>Key Responsibilities</h2>
       <ul class="cardFullDetails__responsibilities">

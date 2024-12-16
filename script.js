@@ -3,6 +3,10 @@ function open_profile() {
   profile_wrap_open.classList.toggle("open_menu");
 }
 
+function applyJob() {
+  alert("Your application have been submitted");
+}
+
 function bookmarkToggle(elementId) {
   const bookmark = document.querySelector("#" + elementId);
 
@@ -48,6 +52,7 @@ function fullDetails(databaseNumber) {
   cardContainer.style.justifyContent = "flex-start";
   cardContainer.style.marginLeft = "8vw";
   cardContainer.style.height = "100vh";
+  cardContainer.classList.add("cardContainer1hid");
 
   cardFullDetails.forEach((element) => {
     element.style.display = "none";
@@ -65,6 +70,24 @@ function fullDetails(databaseNumber) {
       document.querySelector(`.card${i}`).scrollIntoView();
     }
   }
+}
+
+function closeDetails() {
+  const container = document.querySelector(".cardContainer");
+  const cardContainer = document.querySelector(".cardContainer1");
+  const cardFullDetails = document.querySelectorAll(".cardFullDetails");
+
+  container.style.justifyContent = "center";
+
+  cardContainer.style.width = "85vw";
+  cardContainer.style.marginLeft = "0";
+  cardContainer.style.justifyContent = "center";
+  cardContainer.style.height = "100%";
+  cardContainer.classList.remove("cardContainer1hid");
+
+  cardFullDetails.forEach((element) => {
+    element.style.display = "none";
+  });
 }
 
 // Dynamic Element Generation
@@ -106,12 +129,7 @@ function dynamic_cardGeneration() {
       companyName: "McDonalds",
       jobTitle: "Marketing Analyst",
       companyLogo: "./assets/companyLogo/McDonalds.png",
-      jobConditions: [
-        `Full-time`,
-        `Hybrid`,
-        `Flexible Hours`,
-        `Data-driven`
-      ],
+      jobConditions: [`Full-time`, `Hybrid`, `Flexible Hours`, `Data-driven`],
       wage: "RM 4,000/month",
       companyLocation: "Selangor, Malaysia",
     },
@@ -178,12 +196,7 @@ function dynamic_cardGeneration() {
       companyName: "Nike",
       jobTitle: "Logistics Coordinator",
       companyLogo: "./assets/companyLogo/Nike.png",
-      jobConditions: [
-        `Full-time`,
-        `Hybrid`,
-        `Fast-paced`,
-        `Problem Solving`
-      ],
+      jobConditions: [`Full-time`, `Hybrid`, `Fast-paced`, `Problem Solving`],
       wage: "RM 6,500/month",
       companyLocation: "Kuala Lumpur, Malaysia",
     },
@@ -217,7 +230,8 @@ function dynamic_cardGeneration() {
     incidentHTML.classList.add("card");
     incidentHTML.classList.add(`card${count}`);
 
-    const mainDetailsHTML = incidentHTML.getElementsByClassName("card__mainDetails")[0];
+    const mainDetailsHTML =
+      incidentHTML.getElementsByClassName("card__mainDetails")[0];
 
     const finalDateHTML = incidentHTML.getElementsByClassName(
       "card__mainDetails__header__date"
@@ -257,44 +271,41 @@ function dynamic_cardGeneration() {
     );
     buttonHTML.setAttribute("onclick", `fullDetails(${count})`);
 
-    console.log(mainDetailsHTML)
-    console.log(incident.companyName)
-
     switch (incident.companyName) {
       case "Pepsi": {
-        mainDetailsHTML.classList.add("pepsiColor") 
+        mainDetailsHTML.classList.add("pepsiColor");
         break;
       }
       case "H & M": {
-        mainDetailsHTML.classList.add("hmColor") 
+        mainDetailsHTML.classList.add("hmColor");
         break;
       }
       case "McDonalds": {
-        mainDetailsHTML.classList.add("mcdonaldsColor") 
+        mainDetailsHTML.classList.add("mcdonaldsColor");
         break;
       }
       case "Ford Motor": {
-        mainDetailsHTML.classList.add("fordColor") 
+        mainDetailsHTML.classList.add("fordColor");
         break;
       }
       case "Walgreens": {
-        mainDetailsHTML.classList.add("walgreensColor") 
+        mainDetailsHTML.classList.add("walgreensColor");
         break;
       }
       case "FedEx": {
-        mainDetailsHTML.classList.add("fedexColor") 
+        mainDetailsHTML.classList.add("fedexColor");
         break;
       }
       case "Microsoft": {
-        mainDetailsHTML.classList.add("microsoftColor") 
+        mainDetailsHTML.classList.add("microsoftColor");
         break;
       }
       case "Nike": {
-        mainDetailsHTML.classList.add("nikeColor") 
+        mainDetailsHTML.classList.add("nikeColor");
         break;
       }
       case "Apple": {
-        mainDetailsHTML.classList.add("appleColor") 
+        mainDetailsHTML.classList.add("appleColor");
         break;
       }
     }
@@ -408,12 +419,7 @@ function dynamic_cardDetailsGeneration() {
         `Dynamic work environment with global exposure.`,
         `Comprehensive health, wellness, and retirement benefits.`,
       ],
-      jobConditions: [
-        `Full-time`,
-        `Hybrid`,
-        `Flexible Hours`,
-        `Data-driven`
-      ],
+      jobConditions: [`Full-time`, `Hybrid`, `Flexible Hours`, `Data-driven`],
       employerQuestions: [
         `How would you approach analyzing the effectiveness of a new marketing campaign?`,
         `Can you share a time when you used data to influence a marketing decision?`,
@@ -434,13 +440,13 @@ function dynamic_cardDetailsGeneration() {
         `Ensure products meet regulatory standards and environmental guidelines.`,
         `Manage budgets and resources for product development projects.`,
         `Track and report on key performance metrics for product success.`,
-        `Foster innovation and continuous improvement in product development processes.`
+        `Foster innovation and continuous improvement in product development processes.`,
       ],
       whatWeOffer: [
         `Competitive salary with performance incentives.`,
         `Career development opportunities within a global automotive leader.`,
         `Health, dental, and retirement benefits.`,
-        `Collaborative, innovative, and supportive team culture.`
+        `Collaborative, innovative, and supportive team culture.`,
       ],
       jobConditions: [
         `Full-time`,
@@ -451,8 +457,8 @@ function dynamic_cardDetailsGeneration() {
       ],
       employerQuestions: [
         `How do you prioritize features for a new product development project?`,
-        `Can you describe a time you overcame a challenge during product development?`
-      ]
+        `Can you describe a time you overcame a challenge during product development?`,
+      ],
     },
     {
       logoImage: "./assets/companyLogo/Wallgreen.png",
@@ -469,13 +475,13 @@ function dynamic_cardDetailsGeneration() {
         `Ensure compliance with inventory control procedures and policies.`,
         `Report on inventory performance and make recommendations for improvements.`,
         `Address stockouts and overstock issues to minimize costs.`,
-        `Maintain accurate and up-to-date records in inventory management systems.`
+        `Maintain accurate and up-to-date records in inventory management systems.`,
       ],
       whatWeOffer: [
         `Competitive salary and benefits.`,
         `Opportunities for growth in a leading retail company.`,
         `Health and wellness benefits.`,
-        `Discounts on products and services.`
+        `Discounts on products and services.`,
       ],
       jobConditions: [
         `Full-time`,
@@ -485,8 +491,8 @@ function dynamic_cardDetailsGeneration() {
       ],
       employerQuestions: [
         `How would you handle inventory discrepancies discovered during an audit?`,
-        `What strategies do you use to forecast demand and avoid stockouts?`
-      ]
+        `What strategies do you use to forecast demand and avoid stockouts?`,
+      ],
     },
     {
       logoImage: "./assets/companyLogo/FedEx.png",
@@ -503,13 +509,13 @@ function dynamic_cardDetailsGeneration() {
         `Manage relationships with external carriers and service providers.`,
         `Track and report on key logistics performance indicators (KPIs).`,
         `Identify and implement process improvements in logistics operations.`,
-        `Maintain equipment and ensure proper handling of goods during transit.`
+        `Maintain equipment and ensure proper handling of goods during transit.`,
       ],
       whatWeOffer: [
         `Competitive salary and performance bonuses.`,
         `Health, dental, and retirement benefits.`,
         `Global career development opportunities.`,
-        `Work-life balance and flexible scheduling.`
+        `Work-life balance and flexible scheduling.`,
       ],
       jobConditions: [
         `Full-time`,
@@ -519,8 +525,8 @@ function dynamic_cardDetailsGeneration() {
       ],
       employerQuestions: [
         `How would you handle delays in a critical shipment?`,
-        `Can you describe a time you optimized a logistics process to improve efficiency?`
-      ]
+        `Can you describe a time you optimized a logistics process to improve efficiency?`,
+      ],
     },
     {
       logoImage: "./assets/companyLogo/Microsoft.png",
@@ -537,13 +543,13 @@ function dynamic_cardDetailsGeneration() {
         `Monitor employee engagement and retention metrics.`,
         `Work closely with senior leadership to align HR strategies with business objectives.`,
         `Administer compensation and benefits programs.`,
-        `Foster a positive work environment through employee wellness initiatives.`
+        `Foster a positive work environment through employee wellness initiatives.`,
       ],
       whatWeOffer: [
         `Competitive salary with attractive bonuses.`,
         `Career advancement within a leading tech company.`,
         `Comprehensive health, wellness, and retirement benefits.`,
-        `Flexible work arrangements and professional development opportunities.`
+        `Flexible work arrangements and professional development opportunities.`,
       ],
       jobConditions: [
         `Full-time`,
@@ -554,8 +560,8 @@ function dynamic_cardDetailsGeneration() {
       ],
       employerQuestions: [
         `How would you handle a situation where two team members have conflicting views on a policy change?`,
-        `What strategies do you use to ensure a diverse and inclusive workplace?`
-      ]
+        `What strategies do you use to ensure a diverse and inclusive workplace?`,
+      ],
     },
     {
       logoImage: "./assets/companyLogo/Nike.png",
@@ -572,24 +578,19 @@ function dynamic_cardDetailsGeneration() {
         `Resolve shipping issues and delays in a timely manner.`,
         `Maintain detailed records of shipping and receiving activities.`,
         `Implement cost-saving measures to optimize logistics operations.`,
-        `Ensure compliance with transportation regulations and standards.`
+        `Ensure compliance with transportation regulations and standards.`,
       ],
       whatWeOffer: [
         `Competitive salary and performance-based incentives.`,
         `Career progression in a global sportswear company.`,
         `Health and wellness benefits, including gym memberships.`,
-        `Flexible work environment with an emphasis on work-life balance.`
+        `Flexible work environment with an emphasis on work-life balance.`,
       ],
-      jobConditions: [
-        `Full-time`,
-        `Hybrid`,
-        `Fast-paced`,
-        `Problem Solving`
-      ],
+      jobConditions: [`Full-time`, `Hybrid`, `Fast-paced`, `Problem Solving`],
       employerQuestions: [
         `How do you ensure timely deliveries during peak seasons?`,
-        `How would you improve the current logistics system to reduce costs?`
-      ]
+        `How would you improve the current logistics system to reduce costs?`,
+      ],
     },
     {
       logoImage: "./assets/companyLogo/Apple.png",
@@ -606,13 +607,13 @@ function dynamic_cardDetailsGeneration() {
         `Ensure compliance with industry standards and regulatory requirements.`,
         `Provide technical support and guidance to other engineering teams.`,
         `Document and communicate findings, designs, and testing results.`,
-        `Lead hardware development projects from conception to production.`
+        `Lead hardware development projects from conception to production.`,
       ],
       whatWeOffer: [
         `Competitive salary and equity options.`,
         `Health, dental, and retirement benefits.`,
         `Opportunities for professional development and innovation.`,
-        `Work in a collaborative and creative environment.`
+        `Work in a collaborative and creative environment.`,
       ],
       jobConditions: [
         `Full-time`,
@@ -622,9 +623,9 @@ function dynamic_cardDetailsGeneration() {
       ],
       employerQuestions: [
         `Can you describe a challenging hardware issue you’ve solved in the past?`,
-        `How do you ensure that hardware components meet both performance and cost requirements?`
-      ]
-    }
+        `How do you ensure that hardware components meet both performance and cost requirements?`,
+      ],
+    },
   ];
 
   const templates_cardFullDetails = document.getElementsByClassName(

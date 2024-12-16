@@ -131,6 +131,7 @@
     input {
       height: 80%;
       width: 100%;
+      padding: 1.2vw;
     }
 
     .field_incorrect {
@@ -144,8 +145,8 @@
       text-wrap: nowrap;
       /*so it does not go on the 2nd line*/
     }
-    
-    .negative_margin_top{
+
+    .negative_margin_top {
       margin-top: -2vh;
     }
 
@@ -253,7 +254,7 @@
     const password_confirm = document.getElementById("password_confirm")
 
     const need_validation = [first_name, last_name, email, password_confirm, password] //password_confirm first because of password length shenanigans
-    const only_letter = [first_name, last_name]; 
+    const only_letter = [first_name, last_name];
 
     function wrong(check, incorrect, incorrect_text, form_check) {
       check.style.border = "1.5px solid red" // makes input red
@@ -301,7 +302,7 @@
             password_confirm.style.border = "1.5px solid red";
             password_confirm.value = "";
             let field_incorrect_password_confirm = password_confirm.nextElementSibling;
-            if (!field_incorrect_password_confirm.textContent){
+            if (!field_incorrect_password_confirm.textContent) {
               field_incorrect_password_confirm.style.display = "block";
               field_incorrect_password_confirm.textContent = "Main password field incorrect";
             }
