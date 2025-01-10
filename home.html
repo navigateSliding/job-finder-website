@@ -63,8 +63,6 @@
     }
 
     .topBar__searchBar form input {
-      font-family: "Poppins", sans-serif;
-
       background: transparent;
       border: 0;
       outline: none;
@@ -144,42 +142,6 @@
     .cardContainer>div:first-child::-webkit-scrollbar,
     .cardFullDetails::-webkit-scrollbar {
       display: none;
-    }
-
-    .pepsiColor {
-      background-color: #FFBEBE;
-    }
-
-    .hmColor {
-      background-color: #FFE0CC;
-    }
-
-    .mcdonaldsColor {
-      background-color: #D3FFCA;
-    }
-
-    .fordColor {
-      background-color: #E0BEF6;
-    }
-
-    .walgreensColor {
-      background-color: #FFCCDF;
-    }
-
-    .fedexColor {
-      background-color: #E1D6FF;
-    }
-
-    .microsoftColor {
-      background-color: #D2DAFF;
-    }
-
-    .nikeColor {
-      background-color: #D3FFCA;
-    }
-
-    .appleColor {
-      background-color: #E6E6E6;
     }
 
     /* More Details */
@@ -272,6 +234,10 @@
         max-width: 70vw !important;
         margin: 0;
       }
+
+      .cardFullDetails>img:nth-child(2) {
+        left: 0;
+      }
     }
 
     @media (max-width:1100px) {
@@ -342,7 +308,7 @@
           </label>
           <input type="text" name="search" id="search">
 
-          <label for="uploadFile">Upload your resume</label>
+          <label for="uploadFile" onclick="this.style.visibility='hidden'">Upload your resume</label>
           <input type="file" name="uploadFile" id="uploadFile" accept=".pdf, .docx, .doc, .txt" hidden>
         </form>
       </div>

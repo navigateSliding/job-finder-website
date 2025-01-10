@@ -264,6 +264,7 @@ function dynamic_cardGeneration() {
     companyLogoHTML.setAttribute("src", incident.companyLogo);
     wageHTML.textContent = incident.wage;
     companyLocationHTML.textContent = incident.companyLocation;
+
     bookmarkIconHTML.setAttribute("id", `bookmarkIcon${count}`);
     bookmarkIconHTML.setAttribute(
       "onclick",

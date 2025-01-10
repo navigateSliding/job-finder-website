@@ -22,8 +22,10 @@ h3,
 h4,
 p,
 button,
-a {
-  font-family: "Poppins", sans-serif;
+a,
+input,
+textarea {
+  font-family: "Roboto", sans-serif;
   color: #222222;
   margin: 0;
 }
@@ -198,7 +200,7 @@ footer * {
 
 #footer__bottom>h1 {
   display: flex;
-  font-size: max(1rem, 15vw);
+  font-size: max(1rem, 18vw);
   justify-content: space-between;
 }
 
@@ -272,6 +274,7 @@ footer * {
 
 .card__mainDetails__company>div {
   flex: 3;
+  margin: 3rem 0;
 }
 
 .card__mainDetails__company>div>h1 {
@@ -336,6 +339,42 @@ footer * {
 .card__mainDetails__header>p:first-child,
 .card__moreDetails>button {
   border-radius: 25px;
+}
+
+.pepsiColor {
+  background-color: #FFBEBE;
+}
+
+.hmColor {
+  background-color: #FFE0CC;
+}
+
+.mcdonaldsColor {
+  background-color: #D3FFCA;
+}
+
+.fordColor {
+  background-color: #E0BEF6;
+}
+
+.walgreensColor {
+  background-color: #FFCCDF;
+}
+
+.fedexColor {
+  background-color: #E1D6FF;
+}
+
+.microsoftColor {
+  background-color: #D2DAFF;
+}
+
+.nikeColor {
+  background-color: #D3FFCA;
+}
+
+.appleColor {
+  background-color: #E6E6E6;
 }
 
 @media (max-width: 1000px) {

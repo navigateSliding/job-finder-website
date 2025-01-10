@@ -21,19 +21,21 @@
             padding-bottom: 20px;
         }
 
-        /*Body Section*/
-        #All_body {
-            display: grid;
-            margin-top: 5vw;
+        .All_body {
+            display: flex;
+            justify-content: center;
+            margin-top: 3vw;
+            flex-wrap: wrap;
             width: 100%;
-            grid-template-columns: 1fr 1fr;
         }
 
-        /*The button on the left side*/
         .Body_Left {
-            width: 50%;
             text-align: start;
-            padding: 5vw 15vw;
+            justify-content: start;
+            padding: 10px 80px;
+            max-width: 35%;
+            margin-top: 2vw;
+            margin-bottom: 4vw;
         }
 
         .Body_Left>h1 {
@@ -46,13 +48,11 @@
             padding-bottom: 20px;
         }
 
-
-        /*Box on the right side*/
         .Body_Right {
-            padding-right: 10vw;
-            width: 50%;
-            margin-bottom: 10vw;
-            padding-left: 50px;
+            padding: 0vw 6vw;
+            width: 40%;
+            min-width: 40%;
+            margin-bottom: 5vw;
         }
 
         .Body_Right>form {
@@ -107,11 +107,10 @@
             text-indent: 15px;
             background-color: #f8f9fa;
             resize: none;
+            padding-top: 10px;
         }
 
-        /*For Button*/
-        .Body_Right>button {
-            /*Spesific Button*/
+        form>button {
             height: 50px;
             width: 130px;
             color: White;
@@ -121,7 +120,7 @@
             box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.05);
         }
 
-        .Body_Right>button:hover {
+        form>button:hover {
             color: white;
             background-color: rgba(0, 17, 255, 0.863);
             scale: 1.05;
@@ -146,6 +145,37 @@
                 max-width: 300px;
                 /* 小屏幕下缩小 logo */
             }
+        }
+
+        @media (max-width: 600px) {
+            .All_body {
+                display: flex;
+                flex-direction: column;
+                align-content: center;
+                padding: 0px;
+                margin: 0px;
+            }
+
+            .Body_Right>form {
+                grid-template-columns: 100% 100%;
+
+            }
+
+            .Body_Right {
+                padding: 20px 0px;
+                margin: 0px;
+                align-items: center;
+                margin-right: 10vw;
+                max-width: 80%;
+            }
+
+            .Body_Left {
+                padding: 0px;
+                margin: 0px;
+                align-items: center;
+                max-width: 80%;
+            }
+
         }
     </style>
 </head>
@@ -184,7 +214,7 @@
         </div>
     </nav>
 
-    <div id="All_body">
+    <div class="All_body">
         <div class="Body_Left">
             <h1>Contact Us</h1>
             <p>We can help you solve your problem by email, call, or complete the foam</p>
@@ -193,21 +223,21 @@
         </div>
         <div class="Body_Right">
             <h2>Get in Touch</h2>
-            <form action="" method="post">
+            <form action="" method="post" onsubmit="validation(event)" id="formContact">
                 <div class="Body_Right_Name">
-                    <input type="text" placeholder="First Name" id="name1" name="name1" required>
+                    <input type="text" placeholder="First Name" id="name1" name="name1">
                 </div>
                 <div class="Body_Right_Name">
-                    <input type="text" placeholder="Last Name" id="name2" name="name2" required>
+                    <input type="text" placeholder="Last Name" id="name2" name="name2">
                 </div>
                 <div class="Body_Right_emailBox">
-                    <input type="email" placeholder="Email Address" id="Email" name="Email">
+                    <input type="email" placeholder="Email Address" id="email" name="email">
                 </div>
                 <div class="Body_Right_TextBox">
-                    <textarea placeholder="How can we Help ?"></textarea>
+                    <textarea id="textarea" placeholder="How can we Help ?"></textarea>
                 </div>
+                <button type="submit">Submit</button>
             </form>
-            <button onclick="alert('Thank you for your submit !')">Submit</button>
         </div>
     </div>
 
@@ -247,10 +277,28 @@
                 <span>n</span>
             </h1>
         </div>
-    </footer>
+    </footer>z
 
     <script src="./script.js"></script>
+    <script>
+        function validation(event) {
 
+            event.preventDefault();
+
+            const name1 = document.getElementById('name1').value;
+            const name2 = document.getElementById('name2').value;
+            const email = document.getElementById('email').value;
+            const text = document.getElementById('textarea').value;
+
+            if (name1 && name2 && email && text) {
+                alert("Form submitted successfully!");
+                document.getElementById("formContact").reset();
+            }
+            else {
+                alert("Please fill in all fields.");
+            }
+        }
+    </script>
 </body>
 
 

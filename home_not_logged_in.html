@@ -16,7 +16,6 @@
             box-sizing: border-box;
             padding: 0;
             margin: 0;
-            font-family: "Poppins";
             font-weight: 600;
             font-size: 16px;
 
@@ -66,6 +65,7 @@
         }
 
         #carousel_div img {
+            object-fit: contain;
             position: absolute;
             top: 0;
             left: 0;
@@ -161,18 +161,18 @@
 
         .semi_title_text {
             font-weight: normal;
-            font-size: 50px;
+            font-size: max(1.1rem, 2.4vw);
         }
 
         .title_text {
             font-weight: 700;
-            font-size: 90px;
+            font-size: max(1.7rem, 4.2vw);
             line-height: 100%;
         }
 
         .body_text {
             font-weight: normal;
-            font-size: 25px;
+            font-size: max(0.5rem, 1.2vw);
         }
     </style>
 </head>

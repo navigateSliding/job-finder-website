@@ -67,7 +67,6 @@
       background-color: #FFFFFF;
       box-shadow: 0px 0.2vw 0.2vw hsl(0, 0%, 0%, 0.25);
       text-align: center;
-      font-family: "poppins", serif;
       height: 80vh;
       transition: ease all 0.3s;
       overflow-y: auto;
@@ -91,6 +90,8 @@
       color: #FFFFFF;
       padding: 0px;
       font-weight: bold;
+
+      min-height: 1.5rem;
     }
 
     #formtitle {
@@ -313,6 +314,8 @@
 
       if (password.value != password_confirm.value) {
         const error_message_password = "Passwords Must Be Matching";
+        password.value = "";
+        password_confirm.value = "";
         password.style.border = "1.5px solid red";
         password_confirm.style.border = "1.5px solid red";
         let field_incorrect_password = password.nextElementSibling;
